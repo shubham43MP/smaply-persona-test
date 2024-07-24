@@ -1,0 +1,8 @@
+{
+    "recommendations": [
+        "esbenp.prettier-vscode",
+        "dbaeumer.vscode-eslint",
+        "nextbook.file-and-folder-icons",
+        "wesbos.theme-cobalt2"
+    ]
+}
