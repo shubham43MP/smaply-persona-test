@@ -1,25 +1,25 @@
-import { Avatar, Divider } from '@mui/material';
-import './Navbar.scss';
+import { Avatar } from '../Avatar';
 
 export const Navbar = () => {
   return (
     <>
-      <header className="navbar__header">
-        <div className="navbar__header-container">
+      <header className="mx-8 my-6">
+        <div className="flex justify-between">
           <picture>
             <img
               src="public/smaplylogo.png"
               alt="Smaply Logo"
-              className="navbar__logo"
+              className="h-8 w-44"
             />
           </picture>
-          <div className="navbar__user-container">
-            <p className="navbar__username">John Smith</p>
-            <Avatar sx={{ bgcolor: 'purple', fontSize: '1.8rem' }}>JS</Avatar>
+          <div className="flex gap-3">
+            <p className="self-center font-medium text-base">John Smith</p>
+            <Avatar />
+            {/* <Avatar sx={{ bgcolor: 'purple', fontSize: '1.8rem' }}>JS</Avatar> */}
           </div>
         </div>
       </header>
-      <Divider sx={{ marginLeft: '2.4rem', marginRight: '2.4rem' }} />
+      <hr className="mx-6 border-solid border-slate-200"></hr>
     </>
   );
 };

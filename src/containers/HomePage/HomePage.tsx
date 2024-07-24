@@ -3,7 +3,7 @@ import './HomePage.scss';
 
 export const HomePage = () => {
   return (
-    <div className="homepage__container">
+    <div className="flex justify-center mt-8">
       <PersonasMenu />
     </div>
   );

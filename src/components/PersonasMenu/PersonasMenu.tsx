@@ -17,6 +17,8 @@ import { Box, SvgIconTypeMap } from '@mui/material';
 import { OverridableComponent } from '@mui/material/OverridableComponent';
 import AddOutlinedIcon from '@mui/icons-material/AddOutlined';
 import SettingsOutlinedIcon from '@mui/icons-material/SettingsOutlined';
+import SpaceDashboardOutlinedIcon from '@mui/icons-material/SpaceDashboardOutlined';
+import GridViewOutlinedIcon from '@mui/icons-material/GridViewOutlined';
 
 type DestinedIconsProps = {
   Icon: OverridableComponent<SvgIconTypeMap<{}, 'svg'>> & {
@@ -35,6 +37,50 @@ const DestinedIcons = ({ Icon }: DestinedIconsProps) => {
     />
   );
 };
+
+type CustomListItemProps = {
+  Icon: OverridableComponent<SvgIconTypeMap<{}, 'svg'>> & {
+    muiName: string;
+  };
+  itemName: string;
+};
+
+const CustomListItem = ({ Icon, itemName }: CustomListItemProps) => {
+  return (
+    <Box sx={{ display: 'flex', padding: '1.2rem .8rem' }}>
+      <DestinedIcons Icon={Icon} />
+      <Typography
+        sx={{
+          marginLeft: '1rem',
+          alignSelf: 'center',
+          fontWeight: 500,
+          fontSize: '1.8rem'
+        }}
+      >
+        {itemName}
+      </Typography>
+    </Box>
+  );
+};
+
+const workSpaceItems = [
+  {
+    Icon: Person2OutlinedIcon,
+    itemName: 'Journey Maps'
+  },
+  {
+    Icon: Person2OutlinedIcon,
+    itemName: 'Personas'
+  },
+  {
+    Icon: SpaceDashboardOutlinedIcon,
+    itemName: 'Templates'
+  },
+  {
+    Icon: GridViewOutlinedIcon,
+    itemName: 'Portfolio'
+  }
+];
 
 export const PersonasMenu = () => {
   return (
@@ -109,8 +155,58 @@ export const PersonasMenu = () => {
           </Box>
         </AccordionSummary>
         <AccordionDetails>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse
-          malesuada lacus ex, sit amet blandit leo lobortis eget.
+          <Accordion>
+            <AccordionSummary
+              expandIcon={<DestinedIcons Icon={ExpandMoreIcon} />}
+              aria-controls="panel1-content"
+              id="panel1-header"
+              sx={{
+                paddingLeft: '.8rem'
+              }}
+            >
+              <Box sx={{ display: 'flex', padding: '1.2rem .8rem' }}>
+                <DestinedIcons Icon={PeopleAltOutlinedIcon} />
+                <Typography
+                  sx={{
+                    marginLeft: '1rem',
+                    alignSelf: 'center',
+                    fontWeight: 500,
+                    fontSize: '1.8rem'
+                  }}
+                >
+                  My Workspace
+                </Typography>
+              </Box>
+            </AccordionSummary>
+            <AccordionDetails>
+              <Box sx={{ display: 'flex', padding: '1.2rem .8rem' }}>
+                <DestinedIcons Icon={PeopleAltOutlinedIcon} />
+                <Typography
+                  sx={{
+                    marginLeft: '1rem',
+                    alignSelf: 'center',
+                    fontWeight: 500,
+                    fontSize: '1.8rem'
+                  }}
+                >
+                  Journey Maps
+                </Typography>
+              </Box>
+              <Box sx={{ display: 'flex', padding: '1.2rem .8rem' }}>
+                <DestinedIcons Icon={PeopleAltOutlinedIcon} />
+                <Typography
+                  sx={{
+                    marginLeft: '1rem',
+                    alignSelf: 'center',
+                    fontWeight: 500,
+                    fontSize: '1.8rem'
+                  }}
+                >
+                  Personas
+                </Typography>
+              </Box>
+            </AccordionDetails>
+          </Accordion>
         </AccordionDetails>
       </Accordion>
     </Paper>
