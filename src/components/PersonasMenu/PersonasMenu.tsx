@@ -4,42 +4,115 @@ import MenuList from '@mui/material/MenuList';
 import MenuItem from '@mui/material/MenuItem';
 import ListItemText from '@mui/material/ListItemText';
 import ListItemIcon from '@mui/material/ListItemIcon';
-import ContentPaste from '@mui/icons-material/ContentPaste';
+import Typography from '@mui/material/Typography';
 import Cloud from '@mui/icons-material/Cloud';
 import StarOutlineIcon from '@mui/icons-material/StarOutline';
 import PeopleAltOutlinedIcon from '@mui/icons-material/PeopleAltOutlined';
+import Accordion from '@mui/material/Accordion';
+import AccordionSummary from '@mui/material/AccordionSummary';
+import AccordionDetails from '@mui/material/AccordionDetails';
+import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
+import Person2OutlinedIcon from '@mui/icons-material/Person2Outlined';
+import { Box, SvgIconTypeMap } from '@mui/material';
+import { OverridableComponent } from '@mui/material/OverridableComponent';
+import AddOutlinedIcon from '@mui/icons-material/AddOutlined';
+import SettingsOutlinedIcon from '@mui/icons-material/SettingsOutlined';
+
+type DestinedIconsProps = {
+  Icon: OverridableComponent<SvgIconTypeMap<{}, 'svg'>> & {
+    muiName: string;
+  };
+};
+
+const DestinedIcons = ({ Icon }: DestinedIconsProps) => {
+  return (
+    <Icon
+      sx={{
+        width: '2.4rem',
+        height: '2.4rem'
+      }}
+      fontSize="large"
+    />
+  );
+};
 
 export const PersonasMenu = () => {
   return (
-    <Paper sx={{ width: 320, maxWidth: '100%' }}>
-      <MenuList>
-        <MenuItem>
-          <ListItemIcon>
-            <StarOutlineIcon fontSize="small" />
-          </ListItemIcon>
-          <ListItemText>Favourites</ListItemText>
-        </MenuItem>
-        <MenuItem>
-          <ListItemIcon>
-            <PeopleAltOutlinedIcon fontSize="small" />
-          </ListItemIcon>
-          <ListItemText>Shared With Me</ListItemText>
-        </MenuItem>
-        <Divider />
-        <MenuItem>
-          <ListItemIcon>
-            <ContentPaste fontSize="small" />
-          </ListItemIcon>
-          <ListItemText>Paste</ListItemText>
-        </MenuItem>
-        <Divider />
-        <MenuItem>
-          <ListItemIcon>
-            <Cloud fontSize="small" />
-          </ListItemIcon>
-          <ListItemText>Web Clipboard</ListItemText>
-        </MenuItem>
-      </MenuList>
+    <Paper sx={{ width: 370, maxWidth: '100%', padding: '1.6rem' }}>
+      <Box sx={{ display: 'flex', padding: '1.2rem .8rem' }}>
+        <DestinedIcons Icon={StarOutlineIcon} />
+        <Typography
+          sx={{
+            marginLeft: '1rem',
+            alignSelf: 'center',
+            fontWeight: 500,
+            fontSize: '1.8rem'
+          }}
+        >
+          Favourites
+        </Typography>
+      </Box>
+      <Box sx={{ display: 'flex', padding: '1.2rem .8rem' }}>
+        <DestinedIcons Icon={PeopleAltOutlinedIcon} />
+        <Typography
+          sx={{
+            marginLeft: '1rem',
+            alignSelf: 'center',
+            fontWeight: 500,
+            fontSize: '1.8rem'
+          }}
+        >
+          Shared With Me
+        </Typography>
+      </Box>
+      <Divider />
+      <Accordion>
+        <AccordionSummary
+          expandIcon={<DestinedIcons Icon={ExpandMoreIcon} />}
+          aria-controls="panel1-content"
+          id="panel1-header"
+          sx={{
+            paddingLeft: '.8rem'
+          }}
+        >
+          <Box
+            sx={{
+              display: 'flex',
+              justifyContent: 'space-between',
+              width: '100%'
+            }}
+          >
+            <Box sx={{ display: 'flex' }}>
+              <DestinedIcons Icon={Person2OutlinedIcon} />
+              <Typography
+                sx={{
+                  marginLeft: '1rem',
+                  alignSelf: 'center',
+                  fontWeight: 500,
+                  fontSize: '1.8rem'
+                }}
+              >
+                My Sandbox
+              </Typography>
+            </Box>
+            <Box
+              sx={{
+                justifySelf: 'space-between',
+                gap: '1rem',
+                display: 'flex',
+                marginRight: '1rem'
+              }}
+            >
+              <DestinedIcons Icon={AddOutlinedIcon} />
+              <DestinedIcons Icon={SettingsOutlinedIcon} />
+            </Box>
+          </Box>
+        </AccordionSummary>
+        <AccordionDetails>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse
+          malesuada lacus ex, sit amet blandit leo lobortis eget.
+        </AccordionDetails>
+      </Accordion>
     </Paper>
   );
 };
