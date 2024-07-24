@@ -1,0 +1,9 @@
+@use "../../globals/mixins.scss" as mixins;
+
+.homepage {
+    &__container {
+        @include mixins.d-flex;
+        @include mixins.justify-center;
+        margin-top: 3rem;
+    }
+}
