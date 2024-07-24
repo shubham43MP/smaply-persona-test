@@ -1,0 +1,16 @@
+{
+    "editor.formatOnSave": true,
+    "[typescriptreact]": {
+      "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "prisma.showPrismaDataPlatformNotification": false,
+    "workbench.colorTheme": "Cobalt2",
+    "javascript.updateImportsOnFileMove.enabled": "always",
+    "security.workspace.trust.untrustedFiles": "open",
+    "editor.fontLigatures": true,
+    "editor.fontFamily": "'Cascadia Code', 'Droid Sans Mono', 'monospace', monospace",
+    "window.zoomLevel": 1,
+    "eslint.format.enable": true,
+    "workbench.iconTheme": "file-icons"
+  }
+  
