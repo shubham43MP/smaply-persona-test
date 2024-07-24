@@ -15,7 +15,6 @@ export const Navbar = () => {
           <div className="flex gap-3">
             <p className="self-center font-medium text-base">John Smith</p>
             <Avatar />
-            {/* <Avatar sx={{ bgcolor: 'purple', fontSize: '1.8rem' }}>JS</Avatar> */}
           </div>
         </div>
       </header>
