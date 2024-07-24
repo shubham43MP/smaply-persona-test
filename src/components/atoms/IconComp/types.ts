@@ -1,3 +1,4 @@
 export type IconCompProps = {
-    imgUrl: string
+    imgUrl: string;
+    customClass?: string
 }
