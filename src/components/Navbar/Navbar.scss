@@ -11,10 +11,12 @@
     }
 
     &__user-container {
-        @include mixins.d-flex
+        @include mixins.d-flex;
+        gap: 1rem;
     }
 
     &__username {
+        @include mixins.align-center;
         font-weight: 500;
         font-size: 1.6rem;
         line-height: 1%;
@@ -23,6 +25,6 @@
 
     &__logo {
         height: 3.2rem;
-        width: 18rem
+        width: 18rem;
     }
 }

@@ -19,7 +19,7 @@ export const Navbar = () => {
           </div>
         </div>
       </header>
-      <Divider />
+      <Divider sx={{ marginLeft: '2.4rem', marginRight: '2.4rem' }} />
     </>
   );
 };

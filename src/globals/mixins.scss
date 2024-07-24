@@ -5,3 +5,7 @@
 @mixin justify-between {
     justify-content: space-between;
 }
+
+@mixin align-center {
+    align-self: center;
+}
