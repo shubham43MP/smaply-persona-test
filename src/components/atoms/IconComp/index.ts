@@ -1,0 +1,1 @@
+export { IconComp } from './IconComp'
