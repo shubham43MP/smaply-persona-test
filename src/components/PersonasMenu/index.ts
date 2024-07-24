@@ -1,1 +1,0 @@
-export { PersonasMenu } from './PersonasMenu';
