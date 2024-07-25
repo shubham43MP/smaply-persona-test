@@ -7,17 +7,8 @@ import {
   TwoPersonIcon
 } from '../../assets/Icons';
 import { AccordionCustom } from '../Accordion/Accordion';
-import { IconComp } from '../atoms/IconComp';
 import { MenuHover } from './MenuHover';
 import { personaLowerMeuData } from './personaData';
-
-const Item = () => {
-  return (
-    <>
-      <IconComp imgUrl="/icons/favorites.svg" />
-    </>
-  );
-};
 
 export const PersonaMenu = () => {
   return (
