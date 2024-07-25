@@ -50,8 +50,7 @@ export const PersonaMenu = () => {
             <AccordionCustom
               HeaderContent={
                 <div className="flex gap-3 px-2 py-3 ml-2">
-                  <FolderIcon />
-                  <p className="text-lg font-medium">My Workspace</p>
+                  <MenuHover menuLabel="My Workspace" Icon={FolderIcon} />
                 </div>
               }
               BodyContent={
