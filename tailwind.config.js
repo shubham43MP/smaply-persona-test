@@ -9,5 +9,8 @@ export default withMT({
   theme: {
     extend: {},
   },
+  // variants: {
+  //   fill: ['hover', 'focus'],
+  // },
   plugins: [],
 });

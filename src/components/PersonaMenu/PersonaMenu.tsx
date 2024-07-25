@@ -1,5 +1,15 @@
+import {
+  FavoritesIcon,
+  FolderIcon,
+  OnePeople,
+  PlusIcon,
+  SettingsIcon,
+  TwoPersonIcon
+} from '../../assets/Icons';
 import { AccordionCustom } from '../Accordion/Accordion';
 import { IconComp } from '../atoms/IconComp';
+import { MenuHover } from './MenuHover';
+import { personaLowerMeuData } from './personaData';
 
 const Item = () => {
   return (
@@ -13,11 +23,11 @@ export const PersonaMenu = () => {
   return (
     <div className="p-4 rounded-lg w-96 max-w-sm">
       <button className="flex px-2 py-3">
-        <IconComp imgUrl="/icons/favorites.svg" />
+        <FavoritesIcon />
         <p className="ml-2 text-lg font-medium">Favourites</p>
       </button>
       <button className="flex px-2 py-3">
-        <IconComp imgUrl="/icons/twopeople.svg" />
+        <TwoPersonIcon />
         <p className="ml-2 text-lg font-medium">Shared with me</p>
       </button>
       <hr className="border-solid border-black-700"></hr>
@@ -26,12 +36,12 @@ export const PersonaMenu = () => {
         HeaderContent={
           <>
             <div className="flex gap-3 px-2 py-3">
-              <IconComp imgUrl="/icons/onepeople.svg" />
+              <OnePeople />
               <p className="text-lg font-medium">My Sandbox</p>
             </div>
             <div className="flex gap-4">
-              <IconComp imgUrl="/icons/plusicon.svg" />
-              <IconComp imgUrl="/icons/settings.svg" />
+              <PlusIcon />
+              <SettingsIcon />
             </div>
           </>
         }
@@ -40,54 +50,15 @@ export const PersonaMenu = () => {
             <AccordionCustom
               HeaderContent={
                 <div className="flex gap-3 px-2 py-3 ml-2">
-                  <IconComp imgUrl="/icons/folder.svg" />
+                  <FolderIcon />
                   <p className="text-lg font-medium">My Workspace</p>
                 </div>
               }
               BodyContent={
                 <div className="">
-                  <button className="flex gap-3 px-2 py-2 pl-8">
-                    <IconComp
-                      imgUrl="/icons/journeymaps.svg"
-                      customClass="h-5 w-5"
-                    />
-                    <p className="text-base font-medium">Journey Maps</p>
-                  </button>
-                  <button className="flex gap-3 px-2 py-2 pl-8">
-                    <IconComp
-                      imgUrl="/icons/onepeople.svg"
-                      customClass="h-5 w-5"
-                    />
-                    <p className="text-base font-medium">Personas</p>
-                  </button>
-                  <button className="flex gap-3 px-2 py-2 pl-8">
-                    <IconComp
-                      imgUrl="/icons/templates.svg"
-                      customClass="h-5 w-5"
-                    />
-                    <p className="text-base font-medium">Templates</p>
-                  </button>
-                  <button className="flex gap-3 px-2 py-2 pl-8">
-                    <IconComp
-                      imgUrl="/icons/portfolio.svg"
-                      customClass="h-5 w-5"
-                    />
-                    <p className="text-base font-medium">Portfolio</p>
-                  </button>
-                  <button className="flex gap-3 px-2 py-2 pl-8">
-                    <IconComp
-                      imgUrl="/icons/archives.svg"
-                      customClass="h-5 w-5"
-                    />
-                    <p className="text-base font-medium">Archives</p>
-                  </button>
-                  <button className="flex gap-3 px-2 py-2 pl-8">
-                    <IconComp
-                      imgUrl="/icons/settings.svg"
-                      customClass="h-5 w-5"
-                    />
-                    <p className="text-base font-medium">Settings</p>
-                  </button>
+                  {personaLowerMeuData.map(({ label, Icon }) => (
+                    <MenuHover key={label} menuLabel={label} Icon={Icon} />
+                  ))}
                 </div>
               }
             />

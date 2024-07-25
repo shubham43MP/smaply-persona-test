@@ -1,4 +1,4 @@
 export type SVGTSXIconProps = {
-    color: string;
+    color?: string;
     customClass?: string
 }
