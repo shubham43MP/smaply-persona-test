@@ -22,26 +22,34 @@ const Item = () => {
 export const PersonaMenu = () => {
   return (
     <div className="p-4 rounded-lg w-96 max-w-sm">
-      <button className="flex px-2 py-3">
-        <FavoritesIcon />
-        <p className="ml-2 text-lg font-medium">Favourites</p>
-      </button>
-      <button className="flex px-2 py-3">
-        <TwoPersonIcon />
-        <p className="ml-2 text-lg font-medium">Shared with me</p>
-      </button>
+      <MenuHover
+        menuLabel="Favourites"
+        Icon={FavoritesIcon}
+        btnClass="pl-0 px-2 py-3 gap-0"
+        txtClass="ml-2 text-lg"
+        iconClass="h-6 w-6"
+      />
+      <MenuHover
+        menuLabel="Shared with me"
+        Icon={TwoPersonIcon}
+        btnClass="pl-0 px-2 py-3 gap-0"
+        txtClass="ml-2 text-lg"
+        iconClass="h-6 w-6"
+      />
       <hr className="border-solid border-black-700"></hr>
-      <div className=""></div>
       <AccordionCustom
         HeaderContent={
           <>
             <div className="flex gap-3 px-2 py-3">
-              <OnePeople />
-              <p className="text-lg font-medium">My Sandbox</p>
+              <MenuHover
+                menuLabel="My Sandbox"
+                Icon={OnePeople}
+                btnClass="pl-0"
+              />
             </div>
-            <div className="flex gap-4">
-              <PlusIcon />
-              <SettingsIcon />
+            <div className="flex gap-4 ">
+              <MenuHover Icon={PlusIcon} btnClass="pl-0" />
+              <MenuHover Icon={SettingsIcon} btnClass="pl-0" />
             </div>
           </>
         }
@@ -50,7 +58,11 @@ export const PersonaMenu = () => {
             <AccordionCustom
               HeaderContent={
                 <div className="flex gap-3 px-2 py-3 ml-2">
-                  <MenuHover menuLabel="My Workspace" Icon={FolderIcon} />
+                  <MenuHover
+                    menuLabel="My Workspace"
+                    Icon={FolderIcon}
+                    btnClass="pl-0"
+                  />
                 </div>
               }
               BodyContent={
