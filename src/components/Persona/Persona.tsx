@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { ChooseImage } from '../../assets/Icons/chooseImage';
 import { PersonaTextCard } from '../PersonaTextCard';
 import { PersonaWatermarkImage } from '../PersonaWatermarkImage';
+import { EditorComp } from '../EditorComp';
 
 export const Persona = () => {
   const [selectedImage, setSelectedImage] = useState(null);
@@ -53,6 +54,7 @@ export const Persona = () => {
         <div className="bg-white rounded-lg p-3 flex gap-3">
           <PersonaTextCard />
         </div>
+        <EditorComp />
       </div>
     </div>
   );
