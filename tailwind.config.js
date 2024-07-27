@@ -7,7 +7,20 @@ export default withMT({
     "./src/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
-    extend: {},
+    extend: {
+      colors: {
+        'bluish': '#222ADD',
+        'lightgray': '#555555'
+      },
+      height: {
+        '17': '68px',
+        '75': '300px'
+      },
+      width: {
+        '17': '68px',
+        '75': '300px'
+      }
+    },
   },
   // variants: {
   //   fill: ['hover', 'focus'],

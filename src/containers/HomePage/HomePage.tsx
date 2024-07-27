@@ -1,9 +1,9 @@
-import { PersonaMenu } from '../../components/PersonaMenu';
+import { Persona } from '../../components/Persona';
 
 export const HomePage = () => {
   return (
     <div className="flex justify-center mt-8">
-      <PersonaMenu />
+      <Persona />
     </div>
   );
 };
