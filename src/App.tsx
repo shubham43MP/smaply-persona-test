@@ -3,10 +3,10 @@ import { HomePage } from './containers/HomePage';
 
 const App = () => {
   return (
-    <>
+    <div className="bg-lightcream">
       <Navbar />
       <HomePage />
-    </>
+    </div>
   );
 };
 

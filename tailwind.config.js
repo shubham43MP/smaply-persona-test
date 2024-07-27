@@ -10,7 +10,8 @@ export default withMT({
     extend: {
       colors: {
         'bluish': '#222ADD',
-        'lightgray': '#555555'
+        'lightgray': '#555555',
+        'lightcream': '#FBF9F8'
       },
       height: {
         '17': '68px',
