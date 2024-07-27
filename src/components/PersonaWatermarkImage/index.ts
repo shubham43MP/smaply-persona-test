@@ -1,0 +1,1 @@
+export { PersonaWatermarkImage } from "./PersonaWatermarkImage";
