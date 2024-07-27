@@ -1,0 +1,16 @@
+.c-editor {
+    font-family: 'Inter';
+
+    &.h1,h2,h3,h4,h5,h6 {
+        font-weight: 600;
+        font-size: 1rem !important;
+        line-height: 1.5rem;
+    }
+
+    &.p,li {
+        font-weight: 400;
+        font-size: 0.875rem !important;
+        line-height: 1.25rem;
+        padding-left: 0 !important;
+    }
+}
