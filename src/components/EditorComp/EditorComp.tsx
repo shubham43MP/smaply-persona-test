@@ -27,10 +27,12 @@ export const EditorComp = ({ preview = false }: EditorCompProps) => {
           )}
         </button>
         {prevw ? (
-          <div
-            className="h-full p-2"
-            dangerouslySetInnerHTML={{ __html: richText }}
-          />
+          <div className="ql-snow">
+            <div
+              className="h-full p-2 ql-editor"
+              dangerouslySetInnerHTML={{ __html: richText }}
+            />
+          </div>
         ) : (
           <div className="h-full flex items-center justify-center">
             <ReactQuill
