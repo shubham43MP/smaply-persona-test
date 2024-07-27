@@ -11,6 +11,7 @@ export default withMT({
       colors: {
         'bluish': '#222ADD',
         'lightgray': '#555555',
+        'darkcream': '#DED7D5',
         'lightcream': '#FBF9F8'
       },
       height: {

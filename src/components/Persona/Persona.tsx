@@ -15,7 +15,7 @@ export const Persona = () => {
     }
   };
   return (
-    <div className="grid grid-cols-2 max-w-2xl rounded-xl divide-y-2 bg-[#DED7D5] h-[849px] w-[664px]">
+    <div className="grid grid-cols-2 max-w-2xl rounded-xl divide-y-2 bg-darkcream h-[849px] w-[664px]">
       <div className="p-4">
         {
           <div
