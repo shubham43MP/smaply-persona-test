@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { ChooseImage } from '../../assets/Icons/chooseImage';
 import { PersonaTextCard } from '../PersonaTextCard';
 import { PersonaWatermarkImage } from '../PersonaWatermarkImage';
+import { EditorComp } from '../EditorComp';
 
 export const Persona = () => {
   const [selectedImage, setSelectedImage] = useState(null);
@@ -15,7 +16,7 @@ export const Persona = () => {
     }
   };
   return (
-    <div className="grid grid-cols-2 max-w-2xl rounded-xl divide-y-2 bg-[#DED7D5] h-[849px] w-[664px]">
+    <div className="grid grid-cols-2 max-w-2xl rounded-xl divide-y-2 bg-darkcream h-[849px] w-[664px]">
       <div className="p-4">
         {
           <div
@@ -53,6 +54,7 @@ export const Persona = () => {
         <div className="bg-white rounded-lg p-3 flex gap-3">
           <PersonaTextCard />
         </div>
+        <EditorComp />
       </div>
     </div>
   );
