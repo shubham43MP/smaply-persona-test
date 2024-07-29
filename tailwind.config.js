@@ -8,7 +8,7 @@ export default withMT({
   ],
   theme: {
     fontFamily: {
-      'sans': ['Inter']
+      // 'sans': ['Inter']
     },
     extend: {
       colors: {

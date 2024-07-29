@@ -6,6 +6,8 @@ import { EditableRichTextComp } from '../EditableRichTextComp';
 import { Hoverable } from '../HoverableMenu/';
 import { PersonaDetailsModal } from '../PersonaDetailsModal';
 import { RemoveImageComp } from '../../assets/Icons/removeImage';
+import { EditIcon } from '../../assets/Icons/edit';
+import { COLORS } from '../../utils/constants';
 
 export interface RichTextCardState {
   text: string;
@@ -14,22 +16,28 @@ export interface RichTextCardState {
 export interface ImageCardState {}
 
 export const Persona = () => {
+  const [modalOpen, setModalOpen] = useState<boolean>(false);
   const [displayPicture, setDisplayPicture] =
     useState<ReactNode>(RemoveImageComp);
   const [name, setName] = useState<string>('Raghav Verma');
-  const [backgroundColor, setBackgroundColor] = useState<string>('#FFFFFF');
+  const [backgroundColor, setBackgroundColor] = useState<string>(COLORS[0]);
 
   const [selectedImage, setSelectedImage] = useState(null);
   const [rowOneDataCards, setRowOneDataCards] = useState([]);
   const [rowTwoDataCards, setRowTwoDataCards] = useState([]);
+
+  const closeHandler = () => setModalOpen(false);
 
   const handleForm = () => {
     const payload = {
       name,
       backgroundColor
     };
-    const value = JSON.stringify(payload);
-    alert(value);
+    closeHandler();
+  };
+
+  const handleModal = () => {
+    setModalOpen(prev => !prev);
   };
 
   const handleImageChange = (
@@ -42,21 +50,41 @@ export const Persona = () => {
   };
   return (
     <div className="bg-lightcream">
-      <PersonaDetailsModal
-        displayPicture={displayPicture}
-        setDisplayPicture={setDisplayPicture}
-        name={name}
-        setName={setName}
-        backgroundColor={backgroundColor}
-        setBackgroundColor={setBackgroundColor}
-        handleForm={handleForm}
-      />
-      <p className="flex gap-2">
-        <span className="font-medium text-base text-textblack">My Sandbox</span>
-        /<span className="font-medium text-base">My Workspace</span>
-      </p>
-      <div className=""></div>
-      <div className="grid grid-cols-2 max-w-2xl rounded-xl divide-x divide-gray-400 bg-darkcream h-[849px] w-[664px]">
+      <div className="flex flex-col gap-3">
+        <p className="flex gap-2">
+          <span className="font-medium text-base text-textblack">
+            My Sandbox
+          </span>
+          /<span className="font-medium text-base">My Workspace</span>
+        </p>
+        <div className="flex gap-2 relative">
+          <div
+            className="w-12 h-12 p-1 flex items-center justify-center rounded-md"
+            style={{ backgroundColor }}
+          >
+            {displayPicture}
+          </div>
+          <p className="ml-2 text-4xl text-semibold">Rosie Rasmussen</p>
+          <div onClick={handleModal} className="self-center cursor-pointer">
+            <EditIcon customClass="h6 w-6 " />
+          </div>
+
+          {modalOpen && (
+            <PersonaDetailsModal
+              displayPicture={displayPicture}
+              setDisplayPicture={setDisplayPicture}
+              name={name}
+              setName={setName}
+              backgroundColor={backgroundColor}
+              setBackgroundColor={setBackgroundColor}
+              handleForm={handleForm}
+              customClass="absolute z-20"
+              onClose={closeHandler}
+            />
+          )}
+        </div>
+      </div>
+      <div className="grid grid-cols-2 mt-8 max-w-2xl rounded-xl divide-x divide-gray-400 bg-darkcream h-[849px] w-[664px]">
         <div className="p-4">
           {
             <div

@@ -48,30 +48,18 @@ export const PersonaDetailsModal: React.FC = ({
   setName,
   backgroundColor,
   setBackgroundColor,
-  handleForm
+  handleForm,
+  customClass = '',
+  onClose
 }: any) => {
-  //   const [displayPicture, setDisplayPicture] =
-  //     useState<ReactNode>(RemoveImageComp);
-  //   const [name, setName] = useState<string>('Raghav Verma');
-  //   const [backgroundColor, setBackgroundColor] = useState<string>('#FFFFFF');
-
-  //   const handleForm = () => {
-  //     const payload = {
-  //       name,
-  //       backgroundColor
-  //     };
-  //     const value = JSON.stringify(payload);
-  //     alert(value);
-  //   };
-
   return (
-    <div className="flex items-center justify-center">
+    <div className={`flex items-center justify-center ${customClass}`}>
       <div className=" w-full max-w-lg p-6 bg-white rounded-xl shadow-lg">
         {/* Heading and Close Button */}
         <div className="flex justify-between items-center mb-6">
           <h2 className="text-lg font-semibold">Quick Edit</h2>
           <button
-            // onClick={onClose}
+            onClick={onClose}
             className="text-gray-600 hover:text-gray-800"
           >
             <CrossIcon />
@@ -159,7 +147,7 @@ export const PersonaDetailsModal: React.FC = ({
         {/* Button Section */}
         <div className="flex justify-end gap-4 font-medium border-t pt-4">
           <button
-            // onClick={onClose}
+            onClick={onClose}
             className="py-2 px-4 rounded hover:bg-gray-200"
           >
             Cancel
