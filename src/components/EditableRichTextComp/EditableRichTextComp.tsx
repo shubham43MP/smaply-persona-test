@@ -1,4 +1,4 @@
-import { useCallback, useState } from 'react';
+import { useState } from 'react';
 import ReactQuill from 'react-quill';
 import 'react-quill/dist/quill.snow.css';
 import { EditIcon } from '../../assets/Icons/edit';
@@ -20,7 +20,7 @@ export const EditableRichTextComp = ({
   };
 
   return (
-    <div className="rounded-xl bg-[#f5f5f5]">
+    <div className="rounded-xl bg-white">
       <div className="relative w-full flex">
         <button className="absolute right-3 top-3" onClick={clickHandler}>
           {prevw ? (
@@ -30,9 +30,9 @@ export const EditableRichTextComp = ({
           )}
         </button>
         {prevw ? (
-          <div className="ql-snow ">
+          <div className="ql-snow p-1">
             <div
-              className="h-full min-h-16 p-2 ql-editor c-editor text-lightgray rounded-lg"
+              className="h-full min-h-16 p-2 ql-editor text-lightgray rounded-lg c-editor"
               dangerouslySetInnerHTML={{ __html: richText }}
             />
           </div>
