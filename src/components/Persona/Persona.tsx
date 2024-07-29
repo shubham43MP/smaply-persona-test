@@ -1,9 +1,7 @@
 import React, { ReactNode, useState } from 'react';
 import { ChooseImage } from '../../assets/Icons/chooseImage';
 import { PersonaTextCard } from '../PersonaTextCard';
-import { PersonaWatermarkImage } from '../PersonaWatermarkImage';
 import { EditableRichTextComp } from '../EditableRichTextComp';
-import { Hoverable } from '../HoverableMenu/';
 import { PersonaDetailsModal } from '../PersonaDetailsModal';
 import { RemoveImageComp } from '../../assets/Icons/removeImage';
 import { EditIcon } from '../../assets/Icons/edit';
@@ -19,7 +17,7 @@ export const Persona = () => {
   const [modalOpen, setModalOpen] = useState<boolean>(false);
   const [displayPicture, setDisplayPicture] =
     useState<ReactNode>(RemoveImageComp);
-  const [name, setName] = useState<string>('Raghav Verma');
+  const [name, setName] = useState<string>('Rossie Rosmussen');
   const [backgroundColor, setBackgroundColor] = useState<string>(COLORS[0]);
 
   const [selectedImage, setSelectedImage] = useState(null);
@@ -64,7 +62,7 @@ export const Persona = () => {
           >
             {displayPicture}
           </div>
-          <p className="ml-2 text-4xl text-semibold">Rosie Rasmussen</p>
+          <p className="ml-2 text-4xl text-semibold">{name}</p>
           <div onClick={handleModal} className="self-center cursor-pointer">
             <EditIcon customClass="h6 w-6 " />
           </div>
@@ -117,20 +115,19 @@ export const Persona = () => {
         {/* Right Panel Grid*/}
         <div className="p-4 flex flex-col gap-3">
           <div className="bg-white rounded-lg p-3 flex gap-3">
-            <PersonaWatermarkImage />
-            <PersonaTextCard />
+            <div
+              className={`w-12 h-12 p-1 flex items-center justify-center rounded-md`}
+              style={{ backgroundColor }}
+            >
+              {displayPicture}
+            </div>
+            <PersonaTextCard text={name} />
           </div>
 
           <div className="bg-white rounded-lg p-3 flex gap-3">
             <PersonaTextCard />
           </div>
           <EditableRichTextComp />
-
-          {/* <div className="flex-1 relative">
-          <div className="absolute">
-            <Hoverable />
-          </div>
-        </div> */}
         </div>
       </div>
     </div>
