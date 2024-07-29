@@ -1,0 +1,1 @@
+export { PersonaDetailsModal } from "./PersonaDetailsModal";

@@ -1,0 +1,1 @@
+export { EditableRichTextComp } from "./EditableRichTextComp";
