@@ -5,11 +5,13 @@ import { EditIcon } from '../../assets/Icons/edit';
 import { PortfolioIcon } from '../../assets/Icons';
 import './editor.scss';
 
-export type EditorCompProps = {
+export type EditableRichTextCompProps = {
   preview?: boolean;
 };
 
-export const EditorComp = ({ preview = false }: EditorCompProps) => {
+export const EditableRichTextComp = ({
+  preview = false
+}: EditableRichTextCompProps) => {
   const [richText, setRichText] = useState('');
   const [prevw, setPrevw] = useState(preview);
 
