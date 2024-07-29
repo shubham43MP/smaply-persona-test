@@ -32,7 +32,7 @@ export const EditableRichTextComp = ({
         {prevw ? (
           <div className="ql-snow ">
             <div
-              className="h-full p-2 ql-editor c-editor text-lightgray rounded-lg"
+              className="h-full min-h-16 p-2 ql-editor c-editor text-lightgray rounded-lg"
               dangerouslySetInnerHTML={{ __html: richText }}
             />
           </div>
