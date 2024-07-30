@@ -3,20 +3,9 @@ import ReactQuill from 'react-quill';
 import 'react-quill/dist/quill.snow.css';
 import { EditIcon } from '../../assets/Icons/edit';
 import { PortfolioIcon } from '../../assets/Icons';
-import './editor.scss';
 import { memo } from 'react';
-
-export type EditableRichTextCompProps = {
-  preview?: boolean;
-  richText: string;
-  richTextChangeHandler: (
-    value: string,
-    identifier: string,
-    flag: 1 | 2
-  ) => void;
-  identifier: string;
-  flag: 1 | 2;
-};
+import { EditableRichTextCompProps } from './types';
+import './editor.scss';
 
 const EditableRichTextComp = memo(
   ({
