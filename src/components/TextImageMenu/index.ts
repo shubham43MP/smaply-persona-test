@@ -1,0 +1,1 @@
+export { TextImageMenu } from "./TextImageMenu";

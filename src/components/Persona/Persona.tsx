@@ -7,6 +7,7 @@ import { PersonaDetailsModal } from '../PersonaDetailsModal';
 import { RemoveImageComp } from '../../assets/Icons/removeImage';
 import { EditIcon } from '../../assets/Icons/edit';
 import { COLORS } from '../../utils/constants';
+import { TextImageMenu } from '../TextImageMenu';
 
 export type DataCard = {
   type: 'image' | 'text';
@@ -120,16 +121,6 @@ export const Persona = () => {
         content: ''
       }
     }));
-    // if (input === 'image') {
-    //   setRowTwoDataCards(prev => ({
-    //     ...prev,
-    //     [specifcId]: {
-    //       type,
-    //       content: ''
-    //     }
-    //   }));
-    // } else if (input === 'text') {
-    // }
   };
 
   return (
@@ -168,15 +159,19 @@ export const Persona = () => {
           )}
         </div>
       </div>
-      <button onClick={() => addImageCardTextRenderer('text')}>Text</button>
-      <button onClick={() => addImageCardTextRenderer('image')}>Image</button>
-      <div className="grid grid-cols-2 mt-8 max-w-2xl rounded-xl divide-x divide-gray-400 bg-darkcream h-[849px] w-[664px]">
-        <div className="p-4">
+
+      {/* <button onClick={() => addImageCardTextRenderer('text')}>Text</button>
+      <button onClick={() => addImageCardTextRenderer('image')}>Image</button> */}
+      <div className="grid grid-cols-2 mt-8 max-w-2xl rounded-xl divide-x divide-gray-400 bg-darkcream min-h-[849px] min-w-[664px]">
+        <div className="p-4 flex flex-col gap-3">
           <ChooseAnImage
             selectedImage={selectedImage}
             handleImageChange={handleImageChange}
             identifier="default-img-5678"
           />
+          <div className="flex-1">
+            <TextImageMenu />
+          </div>
         </div>
 
         {/* Right Panel Grid*/}
@@ -207,6 +202,9 @@ export const Persona = () => {
               </Fragment>
             );
           })}
+          <div className="flex-1">
+            <TextImageMenu />
+          </div>
         </div>
       </div>
     </div>

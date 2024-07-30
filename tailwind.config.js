@@ -16,7 +16,10 @@ export default withMT({
         'lightgray': '#555555',
         'darkcream': '#DED7D5',
         'lightcream': '#FBF9F8',
-        'textblack': '#1C1C1C'
+        'textblack': '#1C1C1C',
+        'greenish': '#E6F29A',
+        'brandpurple': '#AB63CF',
+        'darkblue': '#3C5DDD'
       },
       height: {
         '17': '68px',
