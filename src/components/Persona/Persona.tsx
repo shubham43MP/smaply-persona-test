@@ -9,6 +9,7 @@ import { COLORS } from '../../utils/constants';
 import { TextImageMenu } from '../TextImageMenu';
 import { ImageOrTextEnum, LimitedNumericValueFlag } from '../../utils/types';
 import { DataCardDerived } from './types';
+import { ChooseAnImage } from '../ChooseImage/ChooseImage';
 
 export const Persona = () => {
   const [modalOpen, setModalOpen] = useState<boolean>(false);
