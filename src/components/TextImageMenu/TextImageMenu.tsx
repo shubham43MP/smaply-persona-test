@@ -55,7 +55,7 @@ type TextImageMenuProps = {};
 
 export const TextImageMenu = () => {
   const [isOpen, setIsOpen] = useState(false);
-  const [showButton, setShowButton] = useState(true);
+  const [showButton, setShowButton] = useState(false);
   const dropdownRef = useRef<HTMLDivElement>(null);
 
   const toggleDropdown = () => {
@@ -78,7 +78,14 @@ export const TextImageMenu = () => {
   }, []);
 
   return (
-    <div className="flex flex-col">
+    <div
+      className="flex flex-col flex-1 cursor-pointer"
+      ref={dropdownRef}
+      onMouseEnter={() => setShowButton(true)}
+      onMouseLeave={() => {
+        if (!isOpen) setShowButton(false);
+      }}
+    >
       {showButton && <div className="border-2 border-darkblue border-solid" />}
       <div
         ref={dropdownRef}

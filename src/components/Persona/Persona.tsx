@@ -169,9 +169,7 @@ export const Persona = () => {
             handleImageChange={handleImageChange}
             identifier="default-img-5678"
           />
-          <div className="flex-1">
-            <TextImageMenu />
-          </div>
+          <TextImageMenu />
         </div>
 
         {/* Right Panel Grid*/}
@@ -202,9 +200,7 @@ export const Persona = () => {
               </Fragment>
             );
           })}
-          <div className="flex-1">
-            <TextImageMenu />
-          </div>
+          <TextImageMenu />
         </div>
       </div>
     </div>
