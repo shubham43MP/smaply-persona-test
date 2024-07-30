@@ -1,47 +1,11 @@
-import { ReactNode, useState } from 'react';
 import { PERSONA_ICONS } from '../../assets/personaAsets';
 import { COLORS } from '../../utils/constants';
 import { RemoveImageComp } from '../../assets/Icons/removeImage';
+import { PersonaDetailsModalProps } from './types';
+import { CheckMark } from '../../assets/Icons/checkmarkIcon';
+import { CrossIcon } from '../../assets/Icons/crossIcon';
 
-const CrossIcon = () => {
-  return (
-    <svg
-      xmlns="http://www.w3.org/2000/svg"
-      className="w-6 h-6"
-      fill="none"
-      viewBox="0 0 24 24"
-      stroke="currentColor"
-    >
-      <path
-        strokeLinecap="round"
-        strokeLinejoin="round"
-        strokeWidth={2}
-        d="M6 18L18 6M6 6l12 12"
-      />
-    </svg>
-  );
-};
-
-const CheckMark = () => {
-  return (
-    <svg
-      xmlns="http://www.w3.org/2000/svg"
-      className="w-5 h-5 text-black absolute"
-      fill="none"
-      viewBox="0 0 24 24"
-      stroke="currentColor"
-    >
-      <path
-        strokeLinecap="round"
-        strokeLinejoin="round"
-        strokeWidth={2}
-        d="M5 13l4 4L19 7"
-      />
-    </svg>
-  );
-};
-
-export const PersonaDetailsModal: React.FC = ({
+export const PersonaDetailsModal = ({
   displayPicture,
   setDisplayPicture,
   name,
@@ -51,7 +15,7 @@ export const PersonaDetailsModal: React.FC = ({
   handleForm,
   customClass = '',
   onClose
-}: any) => {
+}: PersonaDetailsModalProps) => {
   return (
     <div className={`flex items-center justify-center ${customClass}`}>
       <div className=" w-full max-w-lg p-6 bg-white rounded-xl shadow-lg">
