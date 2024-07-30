@@ -7,13 +7,13 @@ import { CrossIcon } from '../../assets/Icons/crossIcon';
 
 export const PersonaDetailsModal = ({
   displayPicture,
-  setDisplayPicture,
   name,
-  setName,
   backgroundColor,
+  customClass = '',
+  setDisplayPicture,
+  setName,
   setBackgroundColor,
   handleForm,
-  customClass = '',
   onClose
 }: PersonaDetailsModalProps) => {
   return (
