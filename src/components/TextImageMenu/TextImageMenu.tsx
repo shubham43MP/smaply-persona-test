@@ -59,14 +59,7 @@ export const TextImageMenu = ({
       }}
     >
       {showButton && <div className="border-2 border-darkblue border-solid" />}
-      <div
-        ref={dropdownRef}
-        onMouseEnter={() => setShowButton(true)}
-        onMouseLeave={() => {
-          if (!isOpen) setShowButton(false);
-        }}
-        className="relative w-48 self-center"
-      >
+      <div className="relative w-48 self-center">
         {/* Hidden button container */}
         <div
           className={`absolute left-0 top-0 w-full h-full ${
