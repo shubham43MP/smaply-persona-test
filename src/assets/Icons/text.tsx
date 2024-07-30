@@ -3,7 +3,7 @@ export const TextIcon = ({ customClass = 'h-6 w-6' }: SVGTSXIconProps) => {
     <svg
       xmlns="http://www.w3.org/2000/svg"
       width="20"
-      height="16"
+      height="20"
       fill="none"
       className={`fill-black-700 ${customClass}`}
     >
