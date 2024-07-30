@@ -1,4 +1,4 @@
-import React, { Fragment, ReactNode, useState } from 'react';
+import React, { Fragment, ReactNode, useCallback, useState } from 'react';
 import { v4 as uuidv4 } from 'uuid';
 import { ChooseImage } from '../../assets/Icons/chooseImage';
 import { PersonaTextCard } from '../PersonaTextCard';
@@ -74,6 +74,27 @@ export const Persona = () => {
 
   const closeHandler = () => setModalOpen(false);
 
+  const rowDataCards = useCallback(
+    (flag: 1 | 2) => {
+      if (flag === 1) return setRowOneDataCards;
+      else return setRowTwoDataCards;
+    },
+    [setRowOneDataCards, setRowTwoDataCards]
+  );
+
+  const richTextChangeHandler = useCallback(
+    (value: string, identifier: string, flag: 1 | 2) => {
+      return rowDataCards(flag)(prev => ({
+        ...prev,
+        [identifier]: {
+          type: 'text',
+          content: value
+        }
+      }));
+    },
+    [rowDataCards]
+  );
+
   const handleForm = () => {
     const payload = {
       name,
@@ -86,50 +107,52 @@ export const Persona = () => {
     setModalOpen(prev => !prev);
   };
 
-  const rowDataCards = (flag: 1 | 2) => {
-    if (flag === 1) return setRowOneDataCards;
-    else return setRowTwoDataCards;
-  };
-
-  const rendererImageHandler = (
-    event: React.ChangeEventHandler<HTMLInputElement>,
-    item: string,
-    flag: 1 | 2
-  ) => {
-    const file = event?.target.files[0];
-    if (item && file) {
-      return rowDataCards(flag)(prev => ({
-        ...prev,
-        [item]: {
-          type: 'image',
-          content: URL.createObjectURL(file)
-        }
-      }));
-    }
-  };
-
-  const handleImageChange = (
-    event: React.ChangeEventHandler<HTMLInputElement>
-  ) => {
-    const file = event?.target.files[0];
-    if (file) {
-      setSelectedImage(URL.createObjectURL(file));
-    }
-  };
-
-  const addImageCardTextRenderer = (type: 'image' | 'text', flag: 1 | 2) => {
-    const specifcId = uuidv4();
-    const resultant = {
-      [specifcId]: {
-        type,
-        content: ''
+  const rendererImageHandler = useCallback(
+    (
+      event: React.ChangeEventHandler<HTMLInputElement>,
+      item: string,
+      flag: 1 | 2
+    ) => {
+      const file = event?.target.files[0];
+      if (item && file) {
+        return rowDataCards(flag)(prev => ({
+          ...prev,
+          [item]: {
+            type: 'image',
+            content: URL.createObjectURL(file)
+          }
+        }));
       }
-    };
-    rowDataCards(flag)(prev => ({
-      ...prev,
-      ...resultant
-    }));
-  };
+    },
+    [rowDataCards]
+  );
+
+  const handleImageChange = useCallback(
+    (event: React.ChangeEventHandler<HTMLInputElement>) => {
+      const file = event?.target.files[0];
+      if (file) {
+        setSelectedImage(URL.createObjectURL(file));
+      }
+    },
+    []
+  );
+
+  const addImageCardTextRenderer = useCallback(
+    (type: 'image' | 'text', flag: 1 | 2) => {
+      const specifcId = uuidv4();
+      const resultant = {
+        [specifcId]: {
+          type,
+          content: ''
+        }
+      };
+      rowDataCards(flag)(prev => ({
+        ...prev,
+        ...resultant
+      }));
+    },
+    [rowDataCards]
+  );
 
   return (
     <div className="bg-lightcream">
@@ -167,32 +190,34 @@ export const Persona = () => {
           )}
         </div>
       </div>
-
-      {/* <button onClick={() => addImageCardTextRenderer('text')}>Text</button>
-      <button onClick={() => addImageCardTextRenderer('image')}>Image</button> */}
-      <div className="grid grid-cols-2 mt-8 max-w-2xl rounded-xl divide-x divide-gray-400 bg-darkcream min-h-[849px] min-w-[664px]">
+      <div className="grid grid-cols-2 mt-8 max-w-2xl rounded-xl divide-x divide-gray-400 bg-darkcream min-h-[230px] min-w-[664px]">
         <div className="p-4 flex flex-col gap-3">
           <ChooseAnImage
             selectedImage={selectedImage}
             handleImageChange={handleImageChange}
             identifier="default-img-5678"
           />
-          {Object.keys(rowOneDataCards).map(cardData => {
-            const element = rowOneDataCards[cardData];
+          {Object.keys(rowOneDataCards).map(cardIdentifierUq => {
+            const element = rowOneDataCards[cardIdentifierUq];
             return (
-              <Fragment key={cardData}>
+              <Fragment key={cardIdentifierUq}>
                 {element.type === 'image' && (
                   <ChooseAnImage
-                    identifier={cardData}
+                    identifier={cardIdentifierUq}
                     selectedImage={element.content}
                     handleImageChange={e => {
-                      rendererImageHandler(e, cardData, 1);
+                      rendererImageHandler(e, cardIdentifierUq, 1);
                     }}
                   />
                 )}
-                {/* {element.type === 'text' && (
-
-                )} */}
+                {element.type === 'text' && (
+                  <EditableRichTextComp
+                    flag={1}
+                    richText={element.content}
+                    richTextChangeHandler={richTextChangeHandler}
+                    identifier={cardIdentifierUq}
+                  />
+                )}
               </Fragment>
             );
           })}
@@ -213,18 +238,26 @@ export const Persona = () => {
             </div>
             <PersonaTextCard text={name} />
           </div>
-          <EditableRichTextComp />
-          {Object.keys(rowTwoDataCards).map(cardData => {
-            const element = rowTwoDataCards[cardData];
+          {Object.keys(rowTwoDataCards).map(cardIdentifierUq => {
+            const element = rowTwoDataCards[cardIdentifierUq];
             return (
-              <Fragment key={cardData}>
+              <Fragment key={cardIdentifierUq}>
                 {element.type === 'image' && (
                   <ChooseAnImage
-                    identifier={cardData}
+                    identifier={cardIdentifierUq}
                     selectedImage={element.content}
                     handleImageChange={e => {
-                      rendererImageHandler(e, cardData, 2);
+                      rendererImageHandler(e, cardIdentifierUq, 2);
                     }}
+                  />
+                )}
+
+                {element.type === 'text' && (
+                  <EditableRichTextComp
+                    flag={2}
+                    richText={element.type}
+                    richTextChangeHandler={richTextChangeHandler}
+                    identifier={cardIdentifierUq}
                   />
                 )}
               </Fragment>
