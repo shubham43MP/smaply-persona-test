@@ -8,10 +8,10 @@ import { RemoveImageComp } from '../../assets/Icons/removeImage';
 import { EditIcon } from '../../assets/Icons/edit';
 import { COLORS } from '../../utils/constants';
 import { TextImageMenu } from '../TextImageMenu';
-import { LimitedNumericValueFlag } from '../../utils/types';
+import { ImageOrTextEnum, LimitedNumericValueFlag } from '../../utils/types';
 
 export type DataCard = {
-  type: 'image' | 'text';
+  type: ImageOrTextEnum;
   content: string;
 };
 
@@ -139,7 +139,7 @@ export const Persona = () => {
   );
 
   const addImageCardTextRenderer = useCallback(
-    (type: 'image' | 'text', flag: LimitedNumericValueFlag) => {
+    (type: ImageOrTextEnum, flag: LimitedNumericValueFlag) => {
       const specifcId = uuidv4();
       const resultant = {
         [specifcId]: {

@@ -2,7 +2,7 @@ import { useState, useEffect, useRef } from 'react';
 import { TextIcon } from '../../assets/Icons/text';
 import { ChooseImage } from '../../assets/Icons/chooseImage';
 import { DropDownList } from './type';
-import { LimitedNumericValueFlag } from '../../utils/types';
+import { ImageOrTextEnum, LimitedNumericValueFlag } from '../../utils/types';
 
 const DROPDOWN_LIST: DropDownList[] = [
   {
@@ -43,7 +43,7 @@ const DropdownIcon = ({ isOpen }: { isOpen: boolean }) => {
 
 type TextImageMenuProps = {
   menuItemClickHandler: (
-    type: 'image' | 'text',
+    type: ImageOrTextEnum,
     flag: LimitedNumericValueFlag
   ) => void;
   flag: LimitedNumericValueFlag;

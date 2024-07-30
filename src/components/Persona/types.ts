@@ -1,5 +1,7 @@
+import { ImageOrTextEnum } from "../../utils/types";
+
 export type DataCard = {
-    type: 'image' | 'text';
+    type: ImageOrTextEnum;
     content: string;
   };
   

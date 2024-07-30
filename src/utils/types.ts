@@ -4,3 +4,8 @@ export type SVGTSXIconProps = {
 }
 
 export type LimitedNumericValueFlag = 1 | 2
+
+export enum ImageOrTextEnum {
+    image = 'image',
+    text = 'text'
+}
