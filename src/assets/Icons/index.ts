@@ -1,8 +1,4 @@
-export { FavoritesIcon } from "./favorites";
-export { FolderIcon } from "./folder";
-export { JourneyMapsIcon } from "./journeymaps";
 export { OnePeople } from "./onepeople";
-export { PlusIcon } from "./plus";
 export { PortfolioIcon } from "./portfolio";
 export { SettingsIcon } from "./settings";
 export { TemplatesIcon } from "./templates";
