@@ -1,6 +1,5 @@
 import React, { Fragment, ReactNode, useCallback, useState } from 'react';
 import { v4 as uuidv4 } from 'uuid';
-import { ChooseImage } from '../../assets/Icons/chooseImage';
 import { PersonaTextCard } from '../PersonaTextCard';
 import { EditableRichTextComp } from '../EditableRichTextComp';
 import { PersonaDetailsModal } from '../PersonaDetailsModal';
@@ -9,58 +8,7 @@ import { EditIcon } from '../../assets/Icons/edit';
 import { COLORS } from '../../utils/constants';
 import { TextImageMenu } from '../TextImageMenu';
 import { ImageOrTextEnum, LimitedNumericValueFlag } from '../../utils/types';
-
-export type DataCard = {
-  type: ImageOrTextEnum;
-  content: string;
-};
-
-type DataCardDerived = {
-  [key: string]: DataCard;
-};
-
-type ChooseAnImageProps = {
-  identifier: string;
-  selectedImage: string;
-  handleImageChange: (
-    event: React.ChangeEventHandler<HTMLInputElement>,
-    item: string
-  ) => void;
-};
-
-const ChooseAnImage = ({
-  selectedImage,
-  handleImageChange,
-  identifier = ''
-}: ChooseAnImageProps) => {
-  const imageIdentifier = `imageInput-${identifier}`;
-  return (
-    <div
-      className=" bg-white rounded-lg relative border-2 border-solid border-gray-300 "
-      onClick={() => document.getElementById(imageIdentifier).click()}
-    >
-      {selectedImage ? (
-        <img
-          src={selectedImage}
-          alt="Selected"
-          className="max-w-75 max-h-75 h-75 w-75 bg-cover object-none rounded-lg"
-        />
-      ) : (
-        <div className="text-center flex flex-col items-center w-72 h-52 justify-center cursor-pointer">
-          <ChooseImage customClass="fill-bluish" />
-          <p className="text-bluish mt-2">Choose an Image</p>
-        </div>
-      )}
-      <input
-        type="file"
-        id={imageIdentifier}
-        accept="image/*"
-        onChange={handleImageChange}
-        className="hidden"
-      />
-    </div>
-  );
-};
+import { DataCardDerived } from './types';
 
 export const Persona = () => {
   const [modalOpen, setModalOpen] = useState<boolean>(false);
@@ -96,17 +44,7 @@ export const Persona = () => {
     [rowDataCards]
   );
 
-  const handleForm = () => {
-    const payload = {
-      name,
-      backgroundColor
-    };
-    closeHandler();
-  };
-
-  const handleModal = () => {
-    setModalOpen(prev => !prev);
-  };
+  const handleModal = () => setModalOpen(prev => !prev);
 
   const rendererImageHandler = useCallback(
     (
@@ -184,7 +122,7 @@ export const Persona = () => {
               setName={setName}
               backgroundColor={backgroundColor}
               setBackgroundColor={setBackgroundColor}
-              handleForm={handleForm}
+              handleForm={closeHandler}
               customClass="absolute z-20"
               onClose={closeHandler}
             />
