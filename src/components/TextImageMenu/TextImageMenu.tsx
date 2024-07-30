@@ -79,7 +79,7 @@ export const TextImageMenu = () => {
 
   return (
     <div className="flex flex-col">
-      <div className="border-2 border-darkblue border-solid"></div>
+      {showButton && <div className="border-2 border-darkblue border-solid" />}
       <div
         ref={dropdownRef}
         onMouseEnter={() => setShowButton(true)}
@@ -98,8 +98,8 @@ export const TextImageMenu = () => {
         {/* Dropdown button */}
         <button
           onClick={toggleDropdown}
-          className={`flex items-center pl-4 bg-[#222ADD] text-white rounded-lg shadow-md focus:outline-none w-full ${
-            showButton ? 'bg-[#00256E]' : 'opacity-0 invisible'
+          className={`flex items-center pl-4 bg-darkblue text-white rounded-lg shadow-md focus:outline-none w-full ${
+            showButton ? 'bg-darkblue' : 'opacity-0 invisible'
           } transition-opacity duration-300`}
         >
           <TextIcon customClass="fill-white" />
