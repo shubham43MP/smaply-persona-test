@@ -5,6 +5,7 @@ import { EditIcon } from '../../assets/Icons/edit';
 import { PortfolioIcon } from '../../assets/Icons';
 import './editor.scss';
 import { memo } from 'react';
+import { LimitedNumericValueFlag } from '../../utils/types';
 
 export type EditableRichTextCompProps = {
   preview?: boolean;
@@ -12,10 +13,10 @@ export type EditableRichTextCompProps = {
   richTextChangeHandler: (
     value: string,
     identifier: string,
-    flag: 1 | 2
+    flag: LimitedNumericValueFlag
   ) => void;
   identifier: string;
-  flag: 1 | 2;
+  flag: LimitedNumericValueFlag;
 };
 
 const EditableRichTextComp = memo(

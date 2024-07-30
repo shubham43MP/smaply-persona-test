@@ -1,28 +1,8 @@
 import { useState, useEffect, useRef } from 'react';
 import { TextIcon } from '../../assets/Icons/text';
 import { ChooseImage } from '../../assets/Icons/chooseImage';
-
-const DummySvg = () => {
-  return (
-    <svg
-      xmlns="http://www.w3.org/2000/svg"
-      className="w-4 h-4 mr-2"
-      fill="currentColor"
-      viewBox="0 0 20 20"
-      aria-hidden="true"
-    >
-      <path d="M3 3v14h14V3H3zm2 2h10v10H5V5zm0 12h10V15H5v2z" />
-    </svg>
-  );
-};
-
-type DropDownList = {
-  id: number;
-  title: string;
-  icon: JSX.Element;
-  customClass: string;
-  type: 'image' | 'text';
-};
+import { DropDownList } from './type';
+import { LimitedNumericValueFlag } from '../../utils/types';
 
 const DROPDOWN_LIST: DropDownList[] = [
   {
@@ -62,8 +42,11 @@ const DropdownIcon = ({ isOpen }: { isOpen: boolean }) => {
 };
 
 type TextImageMenuProps = {
-  menuItemClickHandler: (type: 'image' | 'text', flag: 1 | 2) => void;
-  flag: 1 | 2;
+  menuItemClickHandler: (
+    type: 'image' | 'text',
+    flag: LimitedNumericValueFlag
+  ) => void;
+  flag: LimitedNumericValueFlag;
 };
 
 export const TextImageMenu = ({

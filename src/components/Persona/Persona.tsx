@@ -8,6 +8,7 @@ import { RemoveImageComp } from '../../assets/Icons/removeImage';
 import { EditIcon } from '../../assets/Icons/edit';
 import { COLORS } from '../../utils/constants';
 import { TextImageMenu } from '../TextImageMenu';
+import { LimitedNumericValueFlag } from '../../utils/types';
 
 export type DataCard = {
   type: 'image' | 'text';
@@ -75,7 +76,7 @@ export const Persona = () => {
   const closeHandler = () => setModalOpen(false);
 
   const rowDataCards = useCallback(
-    (flag: 1 | 2) => {
+    (flag: LimitedNumericValueFlag) => {
       if (flag === 1) return setRowOneDataCards;
       else return setRowTwoDataCards;
     },
@@ -83,7 +84,7 @@ export const Persona = () => {
   );
 
   const richTextChangeHandler = useCallback(
-    (value: string, identifier: string, flag: 1 | 2) => {
+    (value: string, identifier: string, flag: LimitedNumericValueFlag) => {
       return rowDataCards(flag)(prev => ({
         ...prev,
         [identifier]: {
@@ -111,7 +112,7 @@ export const Persona = () => {
     (
       event: React.ChangeEventHandler<HTMLInputElement>,
       item: string,
-      flag: 1 | 2
+      flag: LimitedNumericValueFlag
     ) => {
       const file = event?.target.files[0];
       if (item && file) {
@@ -138,7 +139,7 @@ export const Persona = () => {
   );
 
   const addImageCardTextRenderer = useCallback(
-    (type: 'image' | 'text', flag: 1 | 2) => {
+    (type: 'image' | 'text', flag: LimitedNumericValueFlag) => {
       const specifcId = uuidv4();
       const resultant = {
         [specifcId]: {

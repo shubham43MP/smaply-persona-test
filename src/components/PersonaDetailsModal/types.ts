@@ -6,7 +6,7 @@ export type PersonaDetailsModalProps = {
     name: string;
     setName: Dispatch<SetStateAction<string>>;
     backgroundColor: string;
-    setBackgroundColor: Dispatch<SetStateAction<ReactNode>>;
+    setBackgroundColor: Dispatch<SetStateAction<string>>;
     handleForm: () => void;
     customClass?: string;
     onClose: () => void;
