@@ -1,4 +1,4 @@
-import { ImageOrTextEnum } from "../../utils/types";
+import { ImageOrTextEnum, LimitedNumericValueFlag } from "../../utils/types";
 
 export type DropDownList = {
     id: number;
@@ -7,3 +7,11 @@ export type DropDownList = {
     customClass: string;
     type: ImageOrTextEnum;
 };
+
+export type TextImageMenuProps = {
+    menuItemClickHandler: (
+      type: ImageOrTextEnum,
+      flag: LimitedNumericValueFlag
+    ) => void;
+    flag: LimitedNumericValueFlag;
+  };

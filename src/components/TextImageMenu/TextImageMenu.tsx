@@ -1,8 +1,9 @@
 import { useState, useEffect, useRef } from 'react';
 import { TextIcon } from '../../assets/Icons/text';
 import { ChooseImage } from '../../assets/Icons/chooseImage';
-import { DropDownList } from './type';
-import { ImageOrTextEnum, LimitedNumericValueFlag } from '../../utils/types';
+import { DropDownList, TextImageMenuProps } from './type';
+import { ImageOrTextEnum } from '../../utils/types';
+import { DropdownIcon } from '../../assets/Icons/dropdownIcon';
 
 const DROPDOWN_LIST: DropDownList[] = [
   {
@@ -20,34 +21,6 @@ const DROPDOWN_LIST: DropDownList[] = [
     type: ImageOrTextEnum.image
   }
 ];
-
-const DropdownIcon = ({ isOpen }: { isOpen: boolean }) => {
-  return (
-    <svg
-      xmlns="http://www.w3.org/2000/svg"
-      className={`w-5 h-5 transform transition-transform duration-300 ${
-        isOpen ? 'rotate-180' : 'rotate-0'
-      }`}
-      viewBox="0 0 20 20"
-      fill="currentColor"
-      aria-hidden="true"
-    >
-      <path
-        fillRule="evenodd"
-        d="M5.293 7.293a1 1 0 011.414 0L10 9.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
-        clipRule="evenodd"
-      />
-    </svg>
-  );
-};
-
-type TextImageMenuProps = {
-  menuItemClickHandler: (
-    type: ImageOrTextEnum,
-    flag: LimitedNumericValueFlag
-  ) => void;
-  flag: LimitedNumericValueFlag;
-};
 
 export const TextImageMenu = ({
   menuItemClickHandler,
@@ -124,7 +97,6 @@ export const TextImageMenu = ({
           className={`absolute left-0 mt-2 w-full bg-white border border-gray-300 rounded-lg shadow-lg transition-opacity duration-300 ease-in-out ${
             isOpen ? 'opacity-100 visible' : 'opacity-0 invisible'
           }`}
-          style={{ transition: 'opacity 0.3s ease-in-out' }}
         >
           <ul className="py-2">
             {DROPDOWN_LIST.map(option => (
