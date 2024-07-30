@@ -10,14 +10,14 @@ const DROPDOWN_LIST: DropDownList[] = [
     title: 'Text',
     icon: <TextIcon customClass="fill-black bg-greenish" />,
     customClass: 'bg-greenish',
-    type: 'text'
+    type: ImageOrTextEnum.text
   },
   {
     id: 2,
     title: 'Image',
     icon: <ChooseImage customClass="fill-white bg-brandpurple" />,
     customClass: 'bg-brandpurple',
-    type: 'image'
+    type: ImageOrTextEnum.image
   }
 ];
 

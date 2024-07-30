@@ -88,7 +88,7 @@ export const Persona = () => {
       return rowDataCards(flag)(prev => ({
         ...prev,
         [identifier]: {
-          type: 'text',
+          type: ImageOrTextEnum.text,
           content: value
         }
       }));
@@ -119,7 +119,7 @@ export const Persona = () => {
         return rowDataCards(flag)(prev => ({
           ...prev,
           [item]: {
-            type: 'image',
+            type: ImageOrTextEnum.image,
             content: URL.createObjectURL(file)
           }
         }));
@@ -202,7 +202,7 @@ export const Persona = () => {
             const element = rowOneDataCards[cardIdentifierUq];
             return (
               <Fragment key={cardIdentifierUq}>
-                {element.type === 'image' && (
+                {element.type === ImageOrTextEnum.image && (
                   <ChooseAnImage
                     identifier={cardIdentifierUq}
                     selectedImage={element.content}
@@ -211,7 +211,7 @@ export const Persona = () => {
                     }}
                   />
                 )}
-                {element.type === 'text' && (
+                {element.type === ImageOrTextEnum.text && (
                   <EditableRichTextComp
                     flag={1}
                     richText={element.content}
@@ -243,7 +243,7 @@ export const Persona = () => {
             const element = rowTwoDataCards[cardIdentifierUq];
             return (
               <Fragment key={cardIdentifierUq}>
-                {element.type === 'image' && (
+                {element.type === ImageOrTextEnum.image && (
                   <ChooseAnImage
                     identifier={cardIdentifierUq}
                     selectedImage={element.content}
@@ -253,7 +253,7 @@ export const Persona = () => {
                   />
                 )}
 
-                {element.type === 'text' && (
+                {element.type === ImageOrTextEnum.text && (
                   <EditableRichTextComp
                     flag={2}
                     richText={element.type}
