@@ -1,4 +1,4 @@
-import React, { ReactNode, useState } from 'react';
+import React, { Fragment, ReactNode, useState } from 'react';
 import { v4 as uuidv4 } from 'uuid';
 import { ChooseImage } from '../../assets/Icons/chooseImage';
 import { PersonaTextCard } from '../PersonaTextCard';
@@ -18,6 +18,7 @@ type DataCardDerived = {
 };
 
 type ChooseAnImageProps = {
+  identifier: string;
   selectedImage: string;
   handleImageChange: (
     event: React.ChangeEventHandler<HTMLInputElement>,
@@ -27,12 +28,14 @@ type ChooseAnImageProps = {
 
 const ChooseAnImage = ({
   selectedImage,
-  handleImageChange
+  handleImageChange,
+  identifier = ''
 }: ChooseAnImageProps) => {
+  const imageIdentifier = `imageInput-${identifier}`;
   return (
     <div
       className=" bg-white rounded-lg relative border-2 border-solid border-gray-300 "
-      onClick={() => document.getElementById('imageInput').click()}
+      onClick={() => document.getElementById(imageIdentifier).click()}
     >
       {selectedImage ? (
         <img
@@ -48,7 +51,7 @@ const ChooseAnImage = ({
       )}
       <input
         type="file"
-        id="imageInput"
+        id={imageIdentifier}
         accept="image/*"
         onChange={handleImageChange}
         className="hidden"
@@ -82,13 +85,12 @@ export const Persona = () => {
     setModalOpen(prev => !prev);
   };
 
-  const handleImageChange = (
+  const rendererImageHandler = (
     event: React.ChangeEventHandler<HTMLInputElement>,
     item: string
   ) => {
     const file = event?.target.files[0];
-    console.log({ item, rowTwoDataCards });
-    if (item) {
+    if (item && file) {
       return setRowTwoDataCards(prev => ({
         ...prev,
         [item]: {
@@ -97,6 +99,12 @@ export const Persona = () => {
         }
       }));
     }
+  };
+
+  const handleImageChange = (
+    event: React.ChangeEventHandler<HTMLInputElement>
+  ) => {
+    const file = event?.target.files[0];
     if (file) {
       setSelectedImage(URL.createObjectURL(file));
     }
@@ -167,6 +175,7 @@ export const Persona = () => {
           <ChooseAnImage
             selectedImage={selectedImage}
             handleImageChange={handleImageChange}
+            identifier="default-img-5678"
           />
         </div>
 
@@ -182,25 +191,22 @@ export const Persona = () => {
             <PersonaTextCard text={name} />
           </div>
           <EditableRichTextComp />
-          {rowTwoDataCards &&
-            Object.keys(rowTwoDataCards).map(item => {
-              const element = rowTwoDataCards[item];
-              console.log('erer', item);
-              return (
-                <>
-                  {
-                    element.type === 'image' && (
-                      <ChooseAnImage
-                        key={item}
-                        selectedImage={element.type}
-                        handleImageChange={e => handleImageChange(e, item)}
-                      />
-                    )
-                    // : <
-                  }
-                </>
-              );
-            })}
+          {Object.keys(rowTwoDataCards).map(cardData => {
+            const element = rowTwoDataCards[cardData];
+            return (
+              <Fragment key={cardData}>
+                {element.type === 'image' && (
+                  <ChooseAnImage
+                    identifier={cardData}
+                    selectedImage={element.content}
+                    handleImageChange={e => {
+                      rendererImageHandler(e, cardData);
+                    }}
+                  />
+                )}
+              </Fragment>
+            );
+          })}
         </div>
       </div>
     </div>
