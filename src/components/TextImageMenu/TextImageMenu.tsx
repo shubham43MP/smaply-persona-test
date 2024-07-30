@@ -16,18 +16,28 @@ const DummySvg = () => {
   );
 };
 
-const DROPDOWN_LIST = [
+type DropDownList = {
+  id: number;
+  title: string;
+  icon: JSX.Element;
+  customClass: string;
+  type: 'image' | 'text';
+};
+
+const DROPDOWN_LIST: DropDownList[] = [
   {
     id: 1,
     title: 'Text',
     icon: <TextIcon customClass="fill-black bg-greenish" />,
-    customClass: 'bg-greenish'
+    customClass: 'bg-greenish',
+    type: 'text'
   },
   {
     id: 2,
     title: 'Image',
     icon: <ChooseImage customClass="fill-white bg-brandpurple" />,
-    customClass: 'bg-brandpurple'
+    customClass: 'bg-brandpurple',
+    type: 'image'
   }
 ];
 
@@ -51,9 +61,15 @@ const DropdownIcon = ({ isOpen }: { isOpen: boolean }) => {
   );
 };
 
-type TextImageMenuProps = {};
+type TextImageMenuProps = {
+  menuItemClickHandler: (type: 'image' | 'text', flag: 1 | 2) => void;
+  flag: 1 | 2;
+};
 
-export const TextImageMenu = () => {
+export const TextImageMenu = ({
+  menuItemClickHandler,
+  flag
+}: TextImageMenuProps) => {
   const [isOpen, setIsOpen] = useState(false);
   const [showButton, setShowButton] = useState(false);
   const dropdownRef = useRef<HTMLDivElement>(null);
@@ -125,12 +141,12 @@ export const TextImageMenu = () => {
           className={`absolute left-0 mt-2 w-full bg-white border border-gray-300 rounded-lg shadow-lg transition-opacity duration-300 ease-in-out ${
             isOpen ? 'opacity-100 visible' : 'opacity-0 invisible'
           }`}
-          name
           style={{ transition: 'opacity 0.3s ease-in-out' }}
         >
           <ul className="py-2">
             {DROPDOWN_LIST.map(option => (
               <li
+                onClick={() => menuItemClickHandler(option.type, flag)}
                 key={option.id}
                 className="mx-4 py-2 hover:bg-gray-100 cursor-pointer flex items-center"
               >

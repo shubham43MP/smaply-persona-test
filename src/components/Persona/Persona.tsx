@@ -69,7 +69,7 @@ export const Persona = () => {
   const [backgroundColor, setBackgroundColor] = useState<string>(COLORS[0]);
 
   const [selectedImage, setSelectedImage] = useState<string>('');
-  const [rowOneDataCards, setRowOneDataCards] = useState([]);
+  const [rowOneDataCards, setRowOneDataCards] = useState<DataCardDerived>({});
   const [rowTwoDataCards, setRowTwoDataCards] = useState<DataCardDerived>({});
 
   const closeHandler = () => setModalOpen(false);
@@ -86,13 +86,19 @@ export const Persona = () => {
     setModalOpen(prev => !prev);
   };
 
+  const rowDataCards = (flag: 1 | 2) => {
+    if (flag === 1) return setRowOneDataCards;
+    else return setRowTwoDataCards;
+  };
+
   const rendererImageHandler = (
     event: React.ChangeEventHandler<HTMLInputElement>,
-    item: string
+    item: string,
+    flag: 1 | 2
   ) => {
     const file = event?.target.files[0];
     if (item && file) {
-      return setRowTwoDataCards(prev => ({
+      return rowDataCards(flag)(prev => ({
         ...prev,
         [item]: {
           type: 'image',
@@ -111,15 +117,17 @@ export const Persona = () => {
     }
   };
 
-  const addImageCardTextRenderer = (type: 'image' | 'text') => {
-    const flag = 1;
+  const addImageCardTextRenderer = (type: 'image' | 'text', flag: 1 | 2) => {
     const specifcId = uuidv4();
-    setRowTwoDataCards(prev => ({
-      ...prev,
+    const resultant = {
       [specifcId]: {
         type,
         content: ''
       }
+    };
+    rowDataCards(flag)(prev => ({
+      ...prev,
+      ...resultant
     }));
   };
 
@@ -169,7 +177,29 @@ export const Persona = () => {
             handleImageChange={handleImageChange}
             identifier="default-img-5678"
           />
-          <TextImageMenu />
+          {Object.keys(rowOneDataCards).map(cardData => {
+            const element = rowOneDataCards[cardData];
+            return (
+              <Fragment key={cardData}>
+                {element.type === 'image' && (
+                  <ChooseAnImage
+                    identifier={cardData}
+                    selectedImage={element.content}
+                    handleImageChange={e => {
+                      rendererImageHandler(e, cardData, 1);
+                    }}
+                  />
+                )}
+                {/* {element.type === 'text' && (
+
+                )} */}
+              </Fragment>
+            );
+          })}
+          <TextImageMenu
+            menuItemClickHandler={addImageCardTextRenderer}
+            flag={1}
+          />
         </div>
 
         {/* Right Panel Grid*/}
@@ -193,14 +223,17 @@ export const Persona = () => {
                     identifier={cardData}
                     selectedImage={element.content}
                     handleImageChange={e => {
-                      rendererImageHandler(e, cardData);
+                      rendererImageHandler(e, cardData, 2);
                     }}
                   />
                 )}
               </Fragment>
             );
           })}
-          <TextImageMenu />
+          <TextImageMenu
+            menuItemClickHandler={addImageCardTextRenderer}
+            flag={2}
+          />
         </div>
       </div>
     </div>
