@@ -29,7 +29,7 @@ export const Persona = () => {
   } = usePersona();
 
   return (
-    <div className="bg-lightcream">
+    <div>
       <div className="flex flex-col gap-3">
         <p className="flex gap-2">
           <span className="font-medium text-base text-textblack">
