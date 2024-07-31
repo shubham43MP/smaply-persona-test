@@ -7,6 +7,7 @@ import { ChooseAnImage } from '@/components/compounds/ChooseImage';
 import { ImageOrTextEnum } from '@/utils/types';
 import { EditIcon } from '@/assets/Icons/edit';
 import { usePersona } from './usePersona';
+import { PersonaAvatar } from '@/components/atoms/PersonaAvatar';
 
 export const Persona = () => {
   const {
@@ -38,13 +39,14 @@ export const Persona = () => {
           /<span className="font-medium text-base">My Workspace</span>
         </p>
         <div className="flex gap-2 relative">
-          <div
-            className="w-14 h-14 p-3 flex items-center justify-center rounded-md"
-            style={{ backgroundColor }}
+          <PersonaAvatar
+            customClass={`w-14 h-14 rounded-md bg-${backgroundColor}`}
           >
             {displayPicture}
-          </div>
-          <p className="ml-2 text-4xl text-semibold self-center">{name}</p>
+          </PersonaAvatar>
+          <p className="ml-2 text-xl sm:text-4xl text-semibold self-center">
+            {name}
+          </p>
           <div onClick={handleModal} className="self-center cursor-pointer">
             <EditIcon customClass="h6 w-6 " />
           </div>
@@ -102,12 +104,9 @@ export const Persona = () => {
         </div>
         <div className="p-4 flex flex-col gap-3 min-w-82">
           <div className="bg-white rounded-lg p-3 flex gap-3">
-            <div
-              className={`w-16 h-16 p-3 flex items-center justify-center rounded-md`}
-              style={{ backgroundColor }}
-            >
+            <PersonaAvatar customClass={`w-16 h-16 bg-${backgroundColor}`}>
               {displayPicture}
-            </div>
+            </PersonaAvatar>
             <PersonaTextCard text={name} />
           </div>
           {Object.keys(rowTwoDataCards).map(cardIdentifierUq => {

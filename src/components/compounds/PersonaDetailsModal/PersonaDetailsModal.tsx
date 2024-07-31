@@ -4,6 +4,7 @@ import { CheckMark } from '@/assets/Icons/checkmarkIcon';
 import { CrossIcon } from '@/assets/Icons/crossIcon';
 import { COLORS } from '@/utils/constants';
 import { PersonaDetailsModalProps } from './types';
+import { PersonaAvatar } from '@/components/atoms/PersonaAvatar';
 
 export const PersonaDetailsModal = ({
   displayPicture,
@@ -29,14 +30,9 @@ export const PersonaDetailsModal = ({
           </button>
         </div>
         <div className="flex mb-6">
-          <div
-            className="w-20 h-20 rounded-xl bg-gray-200 border flex items-center justify-center"
-            style={{ backgroundColor }}
-          >
-            <div className="w-full h-full p-3 flex items-center justify-center">
-              {displayPicture}
-            </div>
-          </div>
+          <PersonaAvatar customClass={`w-20 h-20 bg-${backgroundColor}`}>
+            {displayPicture}
+          </PersonaAvatar>
           <div className="ml-4 flex items-center">
             <label className="font-semibold mr-2">Name</label>
             <input
@@ -89,12 +85,11 @@ export const PersonaDetailsModal = ({
               <button
                 key={index}
                 onClick={() => setBackgroundColor(color)}
-                className={`w-10 h-10 rounded-md flex items-center justify-center ${
+                className={`w-10 h-10 rounded-md flex items-center justify-center bg-${color} ${
                   backgroundColor === color
                     ? 'border-black border'
                     : 'border-transparent'
                 }`}
-                style={{ backgroundColor: color }}
               >
                 {backgroundColor === color && <CheckMark />}
               </button>

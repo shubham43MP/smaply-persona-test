@@ -2,7 +2,7 @@ export type ChooseAnImageProps = {
     identifier: string;
     selectedImage: string;
     handleImageChange: (
-      event: React.ChangeEventHandler<HTMLInputElement>,
+      event: React.ChangeEvent<HTMLInputElement>,
       item: string
     ) => void;
   };

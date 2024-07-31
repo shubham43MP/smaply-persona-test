@@ -6,8 +6,8 @@ export const PersonaTextCard = ({
 }: PersonaTextCardProps) => {
   return (
     <div className="flex flex-col justify-center text-lightgray">
-      <p className="text-base font-semibold">{header}</p>
-      <p className="text-sm font-normal">{text}</p>
+      <p className="text-sm sm:text-base font-semibold">{header}</p>
+      <p className="text-xs sm:text-sm font-normal">{text}</p>
     </div>
   );
 };

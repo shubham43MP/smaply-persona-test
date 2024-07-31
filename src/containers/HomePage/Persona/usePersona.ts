@@ -10,7 +10,7 @@ export const usePersona = () => {
     const [displayPicture, setDisplayPicture] =
       useState<ReactNode>(PERSONA_ICONS[0].icon);
     const [name, setName] = useState<string>('Rossie Rosmussen');
-    const [backgroundColor, setBackgroundColor] = useState<string>(COLORS[0]);
+    const [backgroundColor, setBackgroundColor] = useState<string>(COLORS[11]);
     const [selectedImage, setSelectedImage] = useState<string>('');
     const [rowOneDataCards, setRowOneDataCards] = useState<DataCardDerived>({});
     const [rowTwoDataCards, setRowTwoDataCards] = useState<DataCardDerived>({});
@@ -40,11 +40,11 @@ export const usePersona = () => {
   
     const rendererImageHandler = useCallback(
       (
-        event: React.ChangeEventHandler<HTMLInputElement>,
+        event: React.ChangeEvent<HTMLInputElement>,
         item: string,
         flag: LimitedNumericValueFlag
       ) => {
-        const file = event?.target.files[0];
+        const file = event && event.target?.files?.[0];
         if (item && file) {
           return rowDataCards(flag)(prev => ({
             ...prev,
@@ -59,8 +59,8 @@ export const usePersona = () => {
     );
   
     const handleImageChange = useCallback(
-      (event: React.ChangeEventHandler<HTMLInputElement>) => {
-        const file = event?.target.files[0];
+      (event: React.ChangeEvent<HTMLInputElement>) => {
+        const file = event?.target?.files?.[0];
         if (file) {
           setSelectedImage(URL.createObjectURL(file));
         }
