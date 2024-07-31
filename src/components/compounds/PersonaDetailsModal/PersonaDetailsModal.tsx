@@ -1,9 +1,9 @@
-import { PERSONA_ICONS } from '../../assets/personaAsets';
-import { COLORS } from '../../utils/constants';
-import { RemoveImageComp } from '../../assets/Icons/removeImage';
+import { PERSONA_ICONS } from '../../../assets/personaAsets';
+import { COLORS } from '../../../utils/constants';
+import { RemoveImageComp } from '../../../assets/Icons/removeImage';
 import { PersonaDetailsModalProps } from './types';
-import { CheckMark } from '../../assets/Icons/checkmarkIcon';
-import { CrossIcon } from '../../assets/Icons/crossIcon';
+import { CheckMark } from '../../../assets/Icons/checkmarkIcon';
+import { CrossIcon } from '../../../assets/Icons/crossIcon';
 
 export const PersonaDetailsModal = ({
   displayPicture,

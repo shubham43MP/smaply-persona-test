@@ -1,4 +1,4 @@
-import { Navbar } from './components/Navbar';
+import { Navbar } from './components/compounds/Navbar';
 import { HomePage } from './containers/HomePage';
 
 const App = () => (

@@ -1,4 +1,4 @@
-import { ImageOrTextEnum, LimitedNumericValueFlag } from "../../utils/types";
+import { ImageOrTextEnum, LimitedNumericValueFlag } from "../../../utils/types";
 
 export type DropDownList = {
     id: number;
