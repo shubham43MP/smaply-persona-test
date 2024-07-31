@@ -18,7 +18,7 @@ const EditableRichTextComp = memo(
     const [prevw, toggle] = useToggle(preview);
 
     const debounced = useDebounceCallback(
-      value => richTextChangeHandler(value, identifier, flag),
+      () => (value: string) => richTextChangeHandler(value, identifier, flag),
       800
     );
 
@@ -44,7 +44,7 @@ const EditableRichTextComp = memo(
               <ReactQuill
                 theme="snow"
                 value={richText}
-                onChange={value => debounced(value)}
+                onChange={debounced()}
                 className="h-full w-full"
               />
             </div>

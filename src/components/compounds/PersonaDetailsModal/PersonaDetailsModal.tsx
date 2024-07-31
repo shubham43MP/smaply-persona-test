@@ -17,6 +17,8 @@ export const PersonaDetailsModal = ({
   handleForm,
   onClose
 }: PersonaDetailsModalProps) => {
+  const displayPictureHandler = () => setDisplayPicture(null);
+
   return (
     <div className={`flex items-center justify-center ${customClass}`}>
       <div className=" w-full max-w-lg p-4 bg-white rounded-xl shadow-lg">
@@ -49,9 +51,7 @@ export const PersonaDetailsModal = ({
           <h3 className="text-lg font-medium mb-2">Image</h3>
           <div className="flex flex-wrap items-center gap-2 mb-4">
             <button
-              onClick={() => {
-                setDisplayPicture(null);
-              }}
+              onClick={displayPictureHandler}
               className=" p-1 hover:bg-gray-200 rounded"
             >
               <div className=" flex items-center justify-center">

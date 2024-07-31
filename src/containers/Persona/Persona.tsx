@@ -82,9 +82,10 @@ export const Persona = () => {
                     <ChooseAnImage
                       identifier={cardIdentifierUq}
                       selectedImage={element.content}
-                      handleImageChange={e => {
-                        rendererImageHandler(e, cardIdentifierUq, 1);
-                      }}
+                      handleImageChange={rendererImageHandler(
+                        cardIdentifierUq,
+                        1
+                      )}
                     />
                   )}
                   {element.type === ImageOrTextEnum.text && (
@@ -118,9 +119,10 @@ export const Persona = () => {
                     <ChooseAnImage
                       identifier={cardIdentifierUq}
                       selectedImage={element.content}
-                      handleImageChange={e => {
-                        rendererImageHandler(e, cardIdentifierUq, 2);
-                      }}
+                      handleImageChange={rendererImageHandler(
+                        cardIdentifierUq,
+                        2
+                      )}
                     />
                   )}
 
