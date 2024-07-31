@@ -64,7 +64,7 @@ export const Persona = () => {
           )}
         </div>
       </div>
-      <div className="grid grid-cols-2 mt-8 max-w-2xl rounded-xl divide-x divide-gray-400 bg-darkcream min-h-[230px] min-w-[664px]">
+      <div className="grid grid-cols-2 mt-8 max-w-2xl rounded-xl divide-x divide-gray-400 bg-darkcream min-h-57 min-w-121">
         <div className="p-4 flex flex-col gap-3">
           <ChooseAnImage
             selectedImage={selectedImage}

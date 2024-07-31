@@ -17,15 +17,18 @@ export default {
         'textblack': '#1C1C1C',
         'greenish': '#E6F29A',
         'brandpurple': '#AB63CF',
-        'darkblue': '#3C5DDD'
+        'darkblue': '#3C5DDD',
+        'darkestblue': '#001B49'
       },
       height: {
         '17': '68px',
-        '75': '300px'
+        '75': '300px',
+        '57': '230px'
       },
       width: {
         '17': '68px',
-        '75': '300px'
+        '75': '300px',
+        '121': '664px'
       }
     },
   },

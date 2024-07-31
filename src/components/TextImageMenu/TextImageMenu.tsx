@@ -75,7 +75,7 @@ export const TextImageMenu = ({
           <span className="mr-2 p-2 font-semibold text-base">Add Card</span>
           <div
             className={`h-full ml-auto flex items-center justify-center p-3 rounded-r-lg ${
-              isOpen ? 'bg-[#001B49] border-l' : 'border-transparent'
+              isOpen ? 'bg-darkestblue border-l' : 'border-transparent'
             }`}
           >
             <DropdownIcon isOpen={isOpen} />
