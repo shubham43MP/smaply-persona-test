@@ -60,14 +60,11 @@ export const TextImageMenu = ({
     >
       {showButton && <div className="border-2 border-darkblue border-solid" />}
       <div className="relative w-48 self-center">
-        {/* Hidden button container */}
         <div
           className={`absolute left-0 top-0 w-full h-full ${
             showButton ? 'opacity-100' : 'opacity-0'
           } transition-opacity duration-300`}
         />
-
-        {/* Dropdown button */}
         <button
           onClick={toggleDropdown}
           className={`flex items-center pl-4 bg-darkblue text-white rounded-lg shadow-md focus:outline-none w-full ${
@@ -85,7 +82,6 @@ export const TextImageMenu = ({
           </div>
         </button>
 
-        {/* Dropdown List */}
         <div
           className={`absolute left-0 mt-2 w-full bg-white border border-gray-300 rounded-lg shadow-lg transition-opacity duration-300 ease-in-out ${
             isOpen ? 'opacity-100 visible' : 'opacity-0 invisible'

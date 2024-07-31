@@ -19,7 +19,6 @@ export const PersonaDetailsModal = ({
   return (
     <div className={`flex items-center justify-center ${customClass}`}>
       <div className=" w-full max-w-lg p-6 bg-white rounded-xl shadow-lg">
-        {/* Heading and Close Button */}
         <div className="flex justify-between items-center mb-6">
           <h2 className="text-lg font-semibold">Quick Edit</h2>
           <button
@@ -29,8 +28,6 @@ export const PersonaDetailsModal = ({
             <CrossIcon />
           </button>
         </div>
-
-        {/* Display Picture and Name Field */}
         <div className="flex mb-6">
           <div
             className="w-16 h-16 rounded-xl bg-gray-200 border flex items-center justify-center"
@@ -52,7 +49,6 @@ export const PersonaDetailsModal = ({
           </div>
         </div>
 
-        {/* Avatar Section */}
         <div className="mb-6">
           <h3 className="text-lg font-medium mb-2">Avatar</h3>
           <div className="flex flex-wrap items-center gap-2 mb-4">
@@ -86,8 +82,6 @@ export const PersonaDetailsModal = ({
             ))}
           </div>
         </div>
-
-        {/* Color Section */}
         <div className="mb-4">
           <h3 className="text-lg font-medium mb-2">Color</h3>
           <div className="flex flex-wrap gap-2">
@@ -108,7 +102,6 @@ export const PersonaDetailsModal = ({
           </div>
         </div>
 
-        {/* Button Section */}
         <div className="flex justify-end gap-4 font-medium border-t pt-4">
           <button
             onClick={onClose}
