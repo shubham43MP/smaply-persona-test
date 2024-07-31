@@ -3,13 +3,13 @@ import { v4 as uuidv4 } from 'uuid';
 import { COLORS } from "../../utils/constants";
 import { DataCardDerived } from "./types";
 import { ImageOrTextEnum, LimitedNumericValueFlag } from "../../utils/types";
-import { RemoveImageComp } from "../../assets/Icons/removeImage";
+import { PERSONA_ICONS } from "../../assets/personaAsets";
 
 
 export const usePersona = () => {
     const [modalOpen, setModalOpen] = useState<boolean>(false);
     const [displayPicture, setDisplayPicture] =
-      useState<ReactNode>(RemoveImageComp);
+      useState<ReactNode>(PERSONA_ICONS[0].icon);
     const [name, setName] = useState<string>('Rossie Rosmussen');
     const [backgroundColor, setBackgroundColor] = useState<string>(COLORS[0]);
   
