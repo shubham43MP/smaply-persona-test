@@ -19,9 +19,9 @@ export const ChooseAnImage = ({
           className="max-w-75 max-h-75 h-75 w-75 bg-cover object-none rounded-lg"
         />
       ) : (
-        <div className="text-center flex flex-col items-center w-72 h-52 justify-center cursor-pointer">
+        <div className="text-center flex flex-col items-center sm:w-72 h-52 justify-center cursor-pointer">
           <ChooseImage customClass="fill-bluish" />
-          <p className="text-bluish mt-2">Choose an Image</p>
+          <p className="text-bluish mt-2 hidden sm:block">Choose an Image</p>
         </div>
       )}
       <input
