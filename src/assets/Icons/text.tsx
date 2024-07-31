@@ -1,4 +1,4 @@
-import { SVGTSXIconProps } from '../../utils/types';
+import { SVGTSXIconProps } from '@/utils/types';
 
 export const TextIcon = ({ customClass = 'h-6 w-6' }: SVGTSXIconProps) => {
   return (

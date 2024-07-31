@@ -1,4 +1,4 @@
-import { SVGTSXIconProps } from '../../utils/types';
+import { SVGTSXIconProps } from '@/utils/types';
 
 export const ArchiveIcon = ({ customClass = 'h-6 w-6' }: SVGTSXIconProps) => {
   return (

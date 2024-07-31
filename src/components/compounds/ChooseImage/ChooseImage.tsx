@@ -1,4 +1,4 @@
-import { ChooseImage } from '../../../assets/Icons/chooseImage';
+import { ChooseImage } from '@/assets/Icons/chooseImage';
 import { ChooseAnImageProps } from './types';
 
 export const ChooseAnImage = ({
