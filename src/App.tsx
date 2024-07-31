@@ -1,11 +1,11 @@
 import { Navbar } from '@/components/compounds/Navbar';
-import { HomePage } from '@/containers/HomePage';
+import { Persona } from './containers/Persona';
 
 const App = () => (
-  <div>
+  <>
     <Navbar />
-    <HomePage />
-  </div>
+    <Persona />
+  </>
 );
 
 export default App;
