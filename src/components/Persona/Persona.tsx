@@ -58,7 +58,7 @@ export const Persona = () => {
               backgroundColor={backgroundColor}
               setBackgroundColor={setBackgroundColor}
               handleForm={closeHandler}
-              customClass="absolute z-20"
+              customClass="absolute z-20 top-16"
               onClose={closeHandler}
             />
           )}

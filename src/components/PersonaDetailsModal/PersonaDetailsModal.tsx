@@ -18,7 +18,7 @@ export const PersonaDetailsModal = ({
 }: PersonaDetailsModalProps) => {
   return (
     <div className={`flex items-center justify-center ${customClass}`}>
-      <div className=" w-full max-w-lg p-6 bg-white rounded-xl shadow-lg">
+      <div className=" w-full max-w-lg p-4 bg-white rounded-xl shadow-lg">
         <div className="flex justify-between items-center mb-6">
           <h2 className="text-lg font-semibold">Quick Edit</h2>
           <button
