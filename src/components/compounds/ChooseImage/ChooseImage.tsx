@@ -1,4 +1,4 @@
-import { useRef } from 'react';
+import { ChangeEventHandler, useRef } from 'react';
 import { ChooseImage } from '@/assets/Icons/chooseImage';
 import { ChooseAnImageProps } from './types';
 
@@ -36,7 +36,9 @@ export const ChooseAnImage = ({
         id={imageIdentifier}
         accept="image/*"
         ref={inputRef}
-        onChange={handleImageChange}
+        onChange={
+          handleImageChange as ChangeEventHandler<HTMLInputElement> | undefined
+        }
         className="hidden"
       />
     </div>

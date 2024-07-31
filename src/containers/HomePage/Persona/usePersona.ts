@@ -59,8 +59,8 @@ export const usePersona = () => {
     );
   
     const handleImageChange = useCallback(
-      (event: React.ChangeEventHandler<HTMLInputElement>) => {
-        const file = event?.target.files[0];
+      (event: React.ChangeEvent<HTMLInputElement>) => {
+        const file = event?.target?.files?.[0];
         if (file) {
           setSelectedImage(URL.createObjectURL(file));
         }
