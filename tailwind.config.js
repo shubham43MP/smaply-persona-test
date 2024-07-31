@@ -28,6 +28,7 @@ export default {
       width: {
         '17': '68px',
         '75': '300px',
+        '82': '332px',
         '121': '664px'
       },
       borderWidth: {

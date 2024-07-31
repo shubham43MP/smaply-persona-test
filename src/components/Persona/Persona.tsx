@@ -65,7 +65,7 @@ export const Persona = () => {
         </div>
       </div>
       <div className="grid grid-cols-2 mt-8 max-w-2xl rounded-xl divide-x divide-gray-400 bg-darkcream min-h-57 min-w-121">
-        <div className="p-4 flex flex-col gap-3">
+        <div className="p-4 flex flex-col gap-3 min-w-82">
           <ChooseAnImage
             selectedImage={selectedImage}
             handleImageChange={handleImageChange}
@@ -100,7 +100,7 @@ export const Persona = () => {
             flag={1}
           />
         </div>
-        <div className="p-4 flex flex-col gap-3">
+        <div className="p-4 flex flex-col gap-3 min-w-82">
           <div className="bg-white rounded-lg p-3 flex gap-3">
             <div
               className={`w-16 h-16 p-3 flex items-center justify-center rounded-md`}
