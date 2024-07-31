@@ -1,4 +1,6 @@
-export const Avatar = ({ name = 'John Smith' }) => {
+import { AvatarProps } from './types';
+
+export const Avatar = ({ name = 'John Smith' }: AvatarProps) => {
   const initials = name
     .split(' ')
     .map(n => n[0])

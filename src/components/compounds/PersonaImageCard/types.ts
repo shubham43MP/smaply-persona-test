@@ -1,4 +1,4 @@
 export type PersonaImageCardProps = {
-    name?: string;
-    svgElement?: React.ReactNode;
+  name?: string;
+  svgElement?: React.ReactNode;
 };

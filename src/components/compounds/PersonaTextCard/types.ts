@@ -1,4 +1,4 @@
 export type PersonaTextCardProps = {
-    header?: string;
-    text?: string;
+  header?: string;
+  text?: string;
 };

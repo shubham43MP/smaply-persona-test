@@ -12,4 +12,4 @@ export const COLORS: string[] = [
   'coloram',
   'greenish',
   'brandpurple'
-  ];
+];

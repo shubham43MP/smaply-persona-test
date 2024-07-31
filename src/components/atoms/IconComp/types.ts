@@ -1,9 +1,9 @@
 export type IconCompProps = {
-    imgUrl: string;
-    customClass?: string
+  imgUrl: string;
+  customClass?: string
 }
 
 export type IconCompTsxProps = {
-    customClass?: string;
-    Icon: JSX.Element;
+  customClass?: string;
+  Icon: JSX.Element;
 }
