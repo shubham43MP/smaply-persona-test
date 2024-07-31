@@ -1,10 +1,10 @@
 import { useState, useEffect, useRef } from 'react';
+import { useDebounceCallback } from 'usehooks-ts';
 import { TextIcon } from '../../assets/Icons/text';
 import { ChooseImage } from '../../assets/Icons/chooseImage';
 import { DropDownList, TextImageMenuProps } from './type';
 import { ImageOrTextEnum } from '../../utils/types';
 import { DropdownIcon } from '../../assets/Icons/dropdownIcon';
-import { useDebounceCallback } from 'usehooks-ts';
 
 const DROPDOWN_LIST: DropDownList[] = [
   {

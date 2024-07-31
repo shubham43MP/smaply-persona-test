@@ -1,10 +1,9 @@
 import { ReactNode, useCallback, useState } from "react";
 import { v4 as uuidv4 } from 'uuid';
 import { COLORS } from "../../utils/constants";
-import { DataCardDerived } from "./types";
 import { ImageOrTextEnum, LimitedNumericValueFlag } from "../../utils/types";
 import { PERSONA_ICONS } from "../../assets/personaAsets";
-
+import { DataCardDerived } from "./types";
 
 export const usePersona = () => {
     const [modalOpen, setModalOpen] = useState<boolean>(false);
@@ -12,7 +11,6 @@ export const usePersona = () => {
       useState<ReactNode>(PERSONA_ICONS[0].icon);
     const [name, setName] = useState<string>('Rossie Rosmussen');
     const [backgroundColor, setBackgroundColor] = useState<string>(COLORS[0]);
-  
     const [selectedImage, setSelectedImage] = useState<string>('');
     const [rowOneDataCards, setRowOneDataCards] = useState<DataCardDerived>({});
     const [rowTwoDataCards, setRowTwoDataCards] = useState<DataCardDerived>({});
@@ -39,8 +37,6 @@ export const usePersona = () => {
       },
       [rowDataCards]
     );
-  
-    const handleModal = () => setModalOpen(prev => !prev);
   
     const rendererImageHandler = useCallback(
       (
@@ -88,6 +84,8 @@ export const usePersona = () => {
       },
       [rowDataCards]
     );
+
+    const handleModal = () => setModalOpen(prev => !prev);
 
     return {
         backgroundColor,
