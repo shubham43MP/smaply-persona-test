@@ -129,7 +129,7 @@ export const Persona = () => {
                 {element.type === ImageOrTextEnum.text && (
                   <EditableRichTextComp
                     flag={2}
-                    richText={element.type}
+                    richText={element.content}
                     richTextChangeHandler={richTextChangeHandler}
                     identifier={cardIdentifierUq}
                   />
