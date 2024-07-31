@@ -44,7 +44,9 @@ export const Persona = () => {
           >
             {displayPicture}
           </div>
-          <p className="ml-2 text-4xl text-semibold self-center">{name}</p>
+          <p className="ml-2 text-xl sm:text-4xl text-semibold self-center">
+            {name}
+          </p>
           <div onClick={handleModal} className="self-center cursor-pointer">
             <EditIcon customClass="h6 w-6 " />
           </div>

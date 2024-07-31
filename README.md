@@ -29,6 +29,7 @@ The dev server will come up at localhost:5173
 - Components are of two types - atoms and compounds. Atoms are single elements very small ones while compounds are complex components that can be fairly reused as well
 - Used react quill rich text editor
 - utilised some debouncing hooks and optimised how the events and rendering happens
+- utilised a dynamic data structre to handle both the cards differently in different columns. This has more scope for optimisation based on use case
 
 ## What can be improved if more time is provided
 
