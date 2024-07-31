@@ -30,7 +30,7 @@ export const PersonaDetailsModal = ({
         </div>
         <div className="flex mb-6">
           <div
-            className="w-16 h-16 rounded-xl bg-gray-200 border flex items-center justify-center"
+            className="w-20 h-20 rounded-xl bg-gray-200 border flex items-center justify-center"
             style={{ backgroundColor }}
           >
             <div className="w-full h-full p-3 flex items-center justify-center">
@@ -50,7 +50,7 @@ export const PersonaDetailsModal = ({
         </div>
 
         <div className="mb-6">
-          <h3 className="text-lg font-medium mb-2">Avatar</h3>
+          <h3 className="text-lg font-medium mb-2">Image</h3>
           <div className="flex flex-wrap items-center gap-2 mb-4">
             <button
               onClick={() => {

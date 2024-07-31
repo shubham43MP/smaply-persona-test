@@ -4,6 +4,7 @@ import { ChooseImage } from '../../assets/Icons/chooseImage';
 import { DropDownList, TextImageMenuProps } from './type';
 import { ImageOrTextEnum } from '../../utils/types';
 import { DropdownIcon } from '../../assets/Icons/dropdownIcon';
+import { useDebounceCallback } from 'usehooks-ts';
 
 const DROPDOWN_LIST: DropDownList[] = [
   {
@@ -49,13 +50,15 @@ export const TextImageMenu = ({
     return () => document.removeEventListener('mousedown', handleClickOutside);
   }, []);
 
+  const debounced = useDebounceCallback(value => setShowButton(value), 100);
+
   return (
     <div
       className="flex flex-col flex-1 cursor-pointer relative"
       ref={dropdownRef}
-      onMouseEnter={() => setShowButton(true)}
+      onMouseEnter={() => debounced(true)}
       onMouseLeave={() => {
-        if (!isOpen) setShowButton(false);
+        if (!isOpen) debounced(false);
       }}
     >
       {showButton && (
