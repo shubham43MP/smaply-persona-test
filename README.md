@@ -2,6 +2,32 @@
 
 ## Dev setup -
 
+## Prerequisites
+
+- NodeJS
+- NPM or Yarn
+
+Check the version compatibility in the Dev Environment section
+
+## Dev Environment
+
+- NodeJS - v20.15.1
+- NPM - v10.7.0
+- yarn - v1.22.19
+- Ubuntu 20.04
+
+### Clone the Repo
+
+```
+git clone git@github.com:shubham43MP/smaply-persona-test.git
+```
+
+### Navigate to root directory
+
+```
+cd smaply-persona-test
+```
+
 ### Install Dependencies
 
 ```
@@ -14,17 +40,11 @@ npm install or yarn install
 yarn run dev or npm run dev
 ```
 
-The dev server will come up at localhost:5173
-
-## Dev Environment
-
-- yarn - v1.22.19
-- NodeJS - v20.15.1
-- Ubuntu 20.04
+The dev server will come up at `localhost:5173`
 
 ## Dev Comments
 
-- Used index.ts in various files just to have a kind of modular formatting
+- Used index.ts in various files just to have a kind of modular formatting.
 - Tried to declutter logic and JSX on some files whic were becoming very big all at once
 - Components are of two types - atoms and compounds. Atoms are single elements very small ones while compounds are complex components that can be fairly reused as well
 - Used react quill rich text editor
