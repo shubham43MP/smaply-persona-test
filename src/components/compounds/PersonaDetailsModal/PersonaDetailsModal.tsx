@@ -16,7 +16,6 @@ export const PersonaDetailsModal = ({
   handleForm,
   onClose
 }: PersonaDetailsModalProps) => {
-  console.log({ backgroundColor });
   return (
     <div className={`flex items-center justify-center ${customClass}`}>
       <div className=" w-full max-w-lg p-4 bg-white rounded-xl shadow-lg">
@@ -31,11 +30,9 @@ export const PersonaDetailsModal = ({
         </div>
         <div className="flex mb-6">
           <div
-            className={`w-20 h-20 rounded-xl bg-gray-200 border flex items-center justify-center bg-${backgroundColor}`}
+            className={`w-20 h-20 p-3 flex items-center justify-center rounded-xl bg-${backgroundColor}`}
           >
-            <div className="w-full h-full p-3 flex items-center justify-center">
-              {displayPicture}
-            </div>
+            {displayPicture}
           </div>
           <div className="ml-4 flex items-center">
             <label className="font-semibold mr-2">Name</label>
