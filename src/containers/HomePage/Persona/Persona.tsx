@@ -1,11 +1,11 @@
 import { Fragment } from 'react';
-import { PersonaTextCard } from '../PersonaTextCard';
-import { EditableRichTextComp } from '../EditableRichTextComp';
-import { PersonaDetailsModal } from '../PersonaDetailsModal';
-import { EditIcon } from '../../assets/Icons/edit';
-import { TextImageMenu } from '../TextImageMenu';
-import { ImageOrTextEnum } from '../../utils/types';
-import { ChooseAnImage } from '../ChooseImage/';
+import { PersonaTextCard } from '../../../components/PersonaTextCard';
+import { EditableRichTextComp } from '../../../components/EditableRichTextComp';
+import { PersonaDetailsModal } from '../../../components/PersonaDetailsModal';
+import { EditIcon } from '../../../assets/Icons/edit';
+import { TextImageMenu } from '../../../components/TextImageMenu';
+import { ImageOrTextEnum } from '../../../utils/types';
+import { ChooseAnImage } from '../../../components/ChooseImage';
 import { usePersona } from './usePersona';
 
 export const Persona = () => {
