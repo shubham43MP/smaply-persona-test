@@ -4,6 +4,7 @@ import { CheckMark } from '@/assets/Icons/checkmarkIcon';
 import { CrossIcon } from '@/assets/Icons/crossIcon';
 import { COLORS } from '@/utils/constants';
 import { PersonaDetailsModalProps } from './types';
+import { PersonaAvatar } from '@/components/atoms/PersonaAvatar';
 
 export const PersonaDetailsModal = ({
   displayPicture,
@@ -29,11 +30,9 @@ export const PersonaDetailsModal = ({
           </button>
         </div>
         <div className="flex mb-6">
-          <div
-            className={`w-20 h-20 p-3 flex items-center justify-center rounded-xl bg-${backgroundColor}`}
-          >
+          <PersonaAvatar customClass={`w-20 h-20 bg-${backgroundColor}`}>
             {displayPicture}
-          </div>
+          </PersonaAvatar>
           <div className="ml-4 flex items-center">
             <label className="font-semibold mr-2">Name</label>
             <input
