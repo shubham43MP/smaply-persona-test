@@ -1,5 +1,6 @@
 import { ChooseImage } from '@/assets/Icons/chooseImage';
 import { ChooseAnImageProps } from './types';
+import { useRef } from 'react';
 
 export const ChooseAnImage = ({
   selectedImage,
@@ -7,10 +8,16 @@ export const ChooseAnImage = ({
   identifier = ''
 }: ChooseAnImageProps) => {
   const imageIdentifier = `imageInput-${identifier}`;
+  const inputRef = useRef<HTMLInputElement>(null);
+
+  const handleClick = () => {
+    inputRef.current?.click();
+  };
+
   return (
     <div
       className=" bg-white rounded-lg relative border-2 border-solid border-gray-300 "
-      onClick={() => document.getElementById(imageIdentifier).click()}
+      onClick={handleClick}
     >
       {selectedImage ? (
         <img
@@ -28,6 +35,7 @@ export const ChooseAnImage = ({
         type="file"
         id={imageIdentifier}
         accept="image/*"
+        ref={inputRef}
         onChange={handleImageChange}
         className="hidden"
       />
