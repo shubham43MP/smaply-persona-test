@@ -40,11 +40,11 @@ export const usePersona = () => {
   
     const rendererImageHandler = useCallback(
       (
-        event: React.ChangeEventHandler<HTMLInputElement>,
+        event: React.ChangeEvent<HTMLInputElement>,
         item: string,
         flag: LimitedNumericValueFlag
       ) => {
-        const file = event?.target.files[0];
+        const file = event && event.target?.files?.[0];
         if (item && file) {
           return rowDataCards(flag)(prev => ({
             ...prev,

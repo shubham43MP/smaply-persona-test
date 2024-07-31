@@ -1,6 +1,6 @@
+import { useRef } from 'react';
 import { ChooseImage } from '@/assets/Icons/chooseImage';
 import { ChooseAnImageProps } from './types';
-import { useRef } from 'react';
 
 export const ChooseAnImage = ({
   selectedImage,
