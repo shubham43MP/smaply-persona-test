@@ -3,8 +3,8 @@ import { RemoveImageComp } from '@/assets/Icons/removeImage';
 import { CheckMark } from '@/assets/Icons/checkmarkIcon';
 import { CrossIcon } from '@/assets/Icons/crossIcon';
 import { COLORS } from '@/utils/constants';
-import { PersonaDetailsModalProps } from './types';
 import { PersonaAvatar } from '@/components/atoms/PersonaAvatar';
+import { PersonaDetailsModalProps } from './types';
 
 export const PersonaDetailsModal = ({
   displayPicture,
