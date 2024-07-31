@@ -39,8 +39,7 @@ export const Persona = () => {
         </p>
         <div className="flex gap-2 relative">
           <div
-            className="w-14 h-14 p-3 flex items-center justify-center rounded-md"
-            style={{ backgroundColor }}
+            className={`w-14 h-14 p-3 flex items-center justify-center rounded-md bg-${backgroundColor}`}
           >
             {displayPicture}
           </div>
@@ -105,8 +104,7 @@ export const Persona = () => {
         <div className="p-4 flex flex-col gap-3 min-w-82">
           <div className="bg-white rounded-lg p-3 flex gap-3">
             <div
-              className={`w-16 h-16 p-3 flex items-center justify-center rounded-md`}
-              style={{ backgroundColor }}
+              className={`w-16 h-16 p-3 flex items-center justify-center rounded-md bg-${backgroundColor}`}
             >
               {displayPicture}
             </div>

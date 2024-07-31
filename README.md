@@ -30,10 +30,10 @@ The dev server will come up at localhost:5173
 - Used react quill rich text editor
 - utilised some debouncing hooks and optimised how the events and rendering happens
 - utilised a dynamic data structre to handle both the cards differently in different columns. This has more scope for optimisation based on use case
+- A substantial time elapsed in tailwind config and removing a bottleneck of the inline styles removal as tailwind config was ot very clear on docs and mismatch of opinions about it like an example [here](https://stackoverflow.com/questions/72481680/tailwinds-background-color-is-not-being-applied-when-added-dynamically) `This problem was finally solved by exploring tailwind library`
 
 ## What can be improved if more time is provided
 
-- yjs collaboration havent added due to time considerations
+- yjs collaboration havent added due to time considerations as this has a substantial learning curve
 - Designs can be further inch tweaked and made closer including responsiveness.
-- There are a few inline styles being used due to a tailwind config issue, those colors are not recognised so have used at a few places, and that
 - Not implemented Left menubar as found no reference of it in the task description

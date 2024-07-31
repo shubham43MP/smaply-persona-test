@@ -1,5 +1,32 @@
 /** @type {import('tailwindcss').Config} */
+
+const COLORS = [
+  'darkblue',
+  'greenishwhite',
+  'colorc',
+  'colord',
+  'colorf',
+  'colorg',
+  'colorh',
+  'colori',
+  'colorj',
+  'colorl',
+  'coloram',
+  'greenish',
+  'brandpurple'
+  ];
+
 export default {
+  purge: {
+    content: [
+      "./index.html",
+      "./src/**/*.{js,ts,jsx,tsx}",
+    ],
+    // Map over the labels and add them to the safelist
+    safelist: [
+      ...COLORS.map((color) => `bg-${color}`)
+    ],
+  },
   content: [
     "./index.html",
     "./src/**/*.{js,ts,jsx,tsx}",
@@ -18,7 +45,17 @@ export default {
         'greenish': '#E6F29A',
         'brandpurple': '#AB63CF',
         'darkblue': '#3C5DDD',
-        'darkestblue': '#001B49'
+        'darkestblue': '#001B49',
+        'greenishwhite' : '#228EFF',
+        'colorc' : '#214236',
+        'colord' : '#76C86D',
+        'colorf' : '#FBDB5A',
+        'colorg' : '#F0A711',
+        'colorh' : '#E8867A',
+        'colori' : '#E24B42',
+        'colorj' : '#CF4012',
+        'colorl' : '#052A6E',
+        'coloram' : '#94F6EC'
       },
       height: {
         '17': '68px',

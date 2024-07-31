@@ -10,7 +10,7 @@ export const usePersona = () => {
     const [displayPicture, setDisplayPicture] =
       useState<ReactNode>(PERSONA_ICONS[0].icon);
     const [name, setName] = useState<string>('Rossie Rosmussen');
-    const [backgroundColor, setBackgroundColor] = useState<string>(COLORS[0]);
+    const [backgroundColor, setBackgroundColor] = useState<string>(COLORS[11]);
     const [selectedImage, setSelectedImage] = useState<string>('');
     const [rowOneDataCards, setRowOneDataCards] = useState<DataCardDerived>({});
     const [rowTwoDataCards, setRowTwoDataCards] = useState<DataCardDerived>({});
