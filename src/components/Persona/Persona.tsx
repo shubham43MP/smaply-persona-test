@@ -5,7 +5,7 @@ import { PersonaDetailsModal } from '../PersonaDetailsModal';
 import { EditIcon } from '../../assets/Icons/edit';
 import { TextImageMenu } from '../TextImageMenu';
 import { ImageOrTextEnum } from '../../utils/types';
-import { ChooseAnImage } from '../ChooseImage/ChooseImage';
+import { ChooseAnImage } from '../ChooseImage/';
 import { usePersona } from './usePersona';
 
 export const Persona = () => {
