@@ -1,11 +1,11 @@
 import { Fragment } from 'react';
-import { PersonaTextCard } from '../../../components/compounds/PersonaTextCard';
-import { EditableRichTextComp } from '../../../components/compounds/EditableRichTextComp';
-import { PersonaDetailsModal } from '../../../components/compounds/PersonaDetailsModal';
-import { EditIcon } from '../../../assets/Icons/edit';
-import { TextImageMenu } from '../../../components/compounds/TextImageMenu';
-import { ImageOrTextEnum } from '../../../utils/types';
-import { ChooseAnImage } from '../../../components/compounds/ChooseImage';
+import { PersonaTextCard } from '@/components/compounds/PersonaTextCard';
+import { EditableRichTextComp } from '@/components/compounds/EditableRichTextComp';
+import { PersonaDetailsModal } from '@/components/compounds/PersonaDetailsModal';
+import { TextImageMenu } from '@/components/compounds/TextImageMenu';
+import { ChooseAnImage } from '@/components/compounds/ChooseImage';
+import { ImageOrTextEnum } from '@/utils/types';
+import { EditIcon } from '@/assets/Icons/edit';
 import { usePersona } from './usePersona';
 
 export const Persona = () => {
@@ -29,7 +29,7 @@ export const Persona = () => {
   } = usePersona();
 
   return (
-    <div className="bg-lightcream">
+    <div>
       <div className="flex flex-col gap-3">
         <p className="flex gap-2">
           <span className="font-medium text-base text-textblack">

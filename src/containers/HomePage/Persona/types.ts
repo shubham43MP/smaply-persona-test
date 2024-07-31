@@ -1,4 +1,4 @@
-import { ImageOrTextEnum } from "../../../utils/types";
+import { ImageOrTextEnum } from "@/utils/types";
 
 export type DataCard = {
     type: ImageOrTextEnum;

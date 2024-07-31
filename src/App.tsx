@@ -1,8 +1,8 @@
-import { Navbar } from './components/compounds/Navbar';
-import { HomePage } from './containers/HomePage';
+import { Navbar } from '@/components/compounds/Navbar';
+import { HomePage } from '@/containers/HomePage';
 
 const App = () => (
-  <div className="bg-lightcream">
+  <div>
     <Navbar />
     <HomePage />
   </div>

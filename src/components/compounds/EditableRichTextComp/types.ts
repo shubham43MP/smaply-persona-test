@@ -1,4 +1,4 @@
-import { LimitedNumericValueFlag } from "../../../utils/types";
+import { LimitedNumericValueFlag } from "@/utils/types";
 
 export type EditableRichTextCompProps = {
     preview?: boolean;

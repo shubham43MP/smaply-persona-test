@@ -1,10 +1,10 @@
 import { useState, useEffect, useRef } from 'react';
 import { useDebounceCallback } from 'usehooks-ts';
-import { TextIcon } from '../../../assets/Icons/text';
-import { ChooseImage } from '../../../assets/Icons/chooseImage';
+import { TextIcon } from '@/assets/Icons/text';
+import { ChooseImage } from '@/assets/Icons/chooseImage';
+import { ImageOrTextEnum } from '@/utils/types';
+import { DropdownIcon } from '@/assets/Icons/dropdownIcon';
 import { DropDownList, TextImageMenuProps } from './type';
-import { ImageOrTextEnum } from '../../../utils/types';
-import { DropdownIcon } from '../../../assets/Icons/dropdownIcon';
 
 const DROPDOWN_LIST: DropDownList[] = [
   {
@@ -50,7 +50,10 @@ export const TextImageMenu = ({
     return () => document.removeEventListener('mousedown', handleClickOutside);
   }, []);
 
-  const debounced = useDebounceCallback(value => setShowButton(value), 100);
+  const debounced = useDebounceCallback(
+    (value: boolean) => setShowButton(value),
+    100
+  );
 
   return (
     <div
@@ -64,7 +67,7 @@ export const TextImageMenu = ({
       {showButton && (
         <div className=" absolute border-1 border-darkblue border-solid w-full" />
       )}
-      <div className="relative w-48 self-center">
+      <div className="relative max-w-48 mt-1 self-center">
         <div
           className={`absolute left-0 top-0 w-full h-full ${
             showButton ? 'opacity-100' : 'opacity-0'
@@ -77,9 +80,11 @@ export const TextImageMenu = ({
           } transition-opacity duration-300`}
         >
           <TextIcon customClass="fill-white" />
-          <span className="mr-2 p-2 font-semibold text-base">Add Card</span>
+          <span className="mr-1 sm:mr-2 p-1 sm:p-2 font-semibold text-sm sm:text-base">
+            Add Card
+          </span>
           <div
-            className={`h-full ml-auto flex items-center justify-center p-3 rounded-r-lg ${
+            className={`h-full ml-auto flex items-center justify-center p-1 sm:p-3 rounded-r-lg ${
               isOpen ? 'bg-darkestblue border-l' : 'border-transparent'
             }`}
           >

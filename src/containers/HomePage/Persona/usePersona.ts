@@ -1,8 +1,8 @@
 import { ReactNode, useCallback, useState } from "react";
 import { v4 as uuidv4 } from 'uuid';
-import { COLORS } from "../../../utils/constants";
-import { ImageOrTextEnum, LimitedNumericValueFlag } from "../../../utils/types";
-import { PERSONA_ICONS } from "../../../assets/personaAsets";
+import { COLORS } from "@/utils/constants";
+import { ImageOrTextEnum, LimitedNumericValueFlag } from "@/utils/types";
+import { PERSONA_ICONS } from "@/assets/personaAsets";
 import { DataCardDerived } from "./types";
 
 export const usePersona = () => {
