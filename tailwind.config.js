@@ -29,6 +29,9 @@ export default {
         '17': '68px',
         '75': '300px',
         '121': '664px'
+      },
+      borderWidth: {
+        '1': '1px'
       }
     },
   },

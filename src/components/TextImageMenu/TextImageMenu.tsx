@@ -51,14 +51,16 @@ export const TextImageMenu = ({
 
   return (
     <div
-      className="flex flex-col flex-1 cursor-pointer"
+      className="flex flex-col flex-1 cursor-pointer relative"
       ref={dropdownRef}
       onMouseEnter={() => setShowButton(true)}
       onMouseLeave={() => {
         if (!isOpen) setShowButton(false);
       }}
     >
-      {showButton && <div className="border-2 border-darkblue border-solid" />}
+      {showButton && (
+        <div className=" absolute border-1 border-darkblue border-solid w-full" />
+      )}
       <div className="relative w-48 self-center">
         <div
           className={`absolute left-0 top-0 w-full h-full ${
