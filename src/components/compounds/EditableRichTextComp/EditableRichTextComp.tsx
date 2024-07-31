@@ -1,10 +1,10 @@
+import { memo } from 'react';
 import { useDebounceCallback, useToggle } from 'usehooks-ts';
 import ReactQuill from 'react-quill';
-import 'react-quill/dist/quill.snow.css';
-import { EditIcon } from '../../assets/Icons/edit';
-import { PortfolioIcon } from '../../assets/Icons';
-import { memo } from 'react';
+import { EditIcon } from '../../../assets/Icons/edit';
+import { PortfolioIcon } from '../../../assets/Icons';
 import { EditableRichTextCompProps } from './types';
+import 'react-quill/dist/quill.snow.css';
 import './editor.scss';
 
 const EditableRichTextComp = memo(

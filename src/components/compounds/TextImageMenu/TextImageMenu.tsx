@@ -1,9 +1,10 @@
 import { useState, useEffect, useRef } from 'react';
-import { TextIcon } from '../../assets/Icons/text';
-import { ChooseImage } from '../../assets/Icons/chooseImage';
+import { useDebounceCallback } from 'usehooks-ts';
+import { TextIcon } from '../../../assets/Icons/text';
+import { ChooseImage } from '../../../assets/Icons/chooseImage';
 import { DropDownList, TextImageMenuProps } from './type';
-import { ImageOrTextEnum } from '../../utils/types';
-import { DropdownIcon } from '../../assets/Icons/dropdownIcon';
+import { ImageOrTextEnum } from '../../../utils/types';
+import { DropdownIcon } from '../../../assets/Icons/dropdownIcon';
 
 const DROPDOWN_LIST: DropDownList[] = [
   {
@@ -49,25 +50,26 @@ export const TextImageMenu = ({
     return () => document.removeEventListener('mousedown', handleClickOutside);
   }, []);
 
+  const debounced = useDebounceCallback(value => setShowButton(value), 100);
+
   return (
     <div
-      className="flex flex-col flex-1 cursor-pointer"
+      className="flex flex-col flex-1 cursor-pointer relative"
       ref={dropdownRef}
-      onMouseEnter={() => setShowButton(true)}
+      onMouseEnter={() => debounced(true)}
       onMouseLeave={() => {
-        if (!isOpen) setShowButton(false);
+        if (!isOpen) debounced(false);
       }}
     >
-      {showButton && <div className="border-2 border-darkblue border-solid" />}
+      {showButton && (
+        <div className=" absolute border-1 border-darkblue border-solid w-full" />
+      )}
       <div className="relative w-48 self-center">
-        {/* Hidden button container */}
         <div
           className={`absolute left-0 top-0 w-full h-full ${
             showButton ? 'opacity-100' : 'opacity-0'
           } transition-opacity duration-300`}
         />
-
-        {/* Dropdown button */}
         <button
           onClick={toggleDropdown}
           className={`flex items-center pl-4 bg-darkblue text-white rounded-lg shadow-md focus:outline-none w-full ${
@@ -78,14 +80,13 @@ export const TextImageMenu = ({
           <span className="mr-2 p-2 font-semibold text-base">Add Card</span>
           <div
             className={`h-full ml-auto flex items-center justify-center p-3 rounded-r-lg ${
-              isOpen ? 'bg-[#001B49] border-l' : 'border-transparent'
+              isOpen ? 'bg-darkestblue border-l' : 'border-transparent'
             }`}
           >
             <DropdownIcon isOpen={isOpen} />
           </div>
         </button>
 
-        {/* Dropdown List */}
         <div
           className={`absolute left-0 mt-2 w-full bg-white border border-gray-300 rounded-lg shadow-lg transition-opacity duration-300 ease-in-out ${
             isOpen ? 'opacity-100 visible' : 'opacity-0 invisible'

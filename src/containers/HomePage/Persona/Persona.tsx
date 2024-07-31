@@ -1,11 +1,11 @@
 import { Fragment } from 'react';
-import { PersonaTextCard } from '../PersonaTextCard';
-import { EditableRichTextComp } from '../EditableRichTextComp';
-import { PersonaDetailsModal } from '../PersonaDetailsModal';
-import { EditIcon } from '../../assets/Icons/edit';
-import { TextImageMenu } from '../TextImageMenu';
-import { ImageOrTextEnum } from '../../utils/types';
-import { ChooseAnImage } from '../ChooseImage/ChooseImage';
+import { PersonaTextCard } from '../../../components/compounds/PersonaTextCard';
+import { EditableRichTextComp } from '../../../components/compounds/EditableRichTextComp';
+import { PersonaDetailsModal } from '../../../components/compounds/PersonaDetailsModal';
+import { EditIcon } from '../../../assets/Icons/edit';
+import { TextImageMenu } from '../../../components/compounds/TextImageMenu';
+import { ImageOrTextEnum } from '../../../utils/types';
+import { ChooseAnImage } from '../../../components/compounds/ChooseImage';
 import { usePersona } from './usePersona';
 
 export const Persona = () => {
@@ -58,14 +58,14 @@ export const Persona = () => {
               backgroundColor={backgroundColor}
               setBackgroundColor={setBackgroundColor}
               handleForm={closeHandler}
-              customClass="absolute z-20"
+              customClass="absolute z-20 top-16"
               onClose={closeHandler}
             />
           )}
         </div>
       </div>
-      <div className="grid grid-cols-2 mt-8 max-w-2xl rounded-xl divide-x divide-gray-400 bg-darkcream min-h-[230px] min-w-[664px]">
-        <div className="p-4 flex flex-col gap-3">
+      <div className="grid grid-cols-2 mt-8 max-w-2xl rounded-xl divide-x divide-gray-400 bg-darkcream min-h-57 min-w-121">
+        <div className="p-4 flex flex-col gap-3 min-w-82">
           <ChooseAnImage
             selectedImage={selectedImage}
             handleImageChange={handleImageChange}
@@ -100,9 +100,7 @@ export const Persona = () => {
             flag={1}
           />
         </div>
-
-        {/* Right Panel Grid*/}
-        <div className="p-4 flex flex-col gap-3">
+        <div className="p-4 flex flex-col gap-3 min-w-82">
           <div className="bg-white rounded-lg p-3 flex gap-3">
             <div
               className={`w-16 h-16 p-3 flex items-center justify-center rounded-md`}
@@ -129,7 +127,7 @@ export const Persona = () => {
                 {element.type === ImageOrTextEnum.text && (
                   <EditableRichTextComp
                     flag={2}
-                    richText={element.type}
+                    richText={element.content}
                     richTextChangeHandler={richTextChangeHandler}
                     identifier={cardIdentifierUq}
                   />

@@ -1,4 +1,4 @@
-import { Persona } from '../../components/Persona';
+import { Persona } from './Persona';
 
 export const HomePage = () => {
   return (

@@ -10,4 +10,4 @@ export type PersonaDetailsModalProps = {
     handleForm: () => void;
     customClass?: string;
     onClose: () => void;
-  };
+};

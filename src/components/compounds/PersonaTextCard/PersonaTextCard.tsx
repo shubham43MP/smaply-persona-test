@@ -1,7 +1,4 @@
-type PersonaTextCardProps = {
-  header?: string;
-  text?: string;
-};
+import { PersonaTextCardProps } from './types';
 
 export const PersonaTextCard = ({
   header = 'Persona Name',

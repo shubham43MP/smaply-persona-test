@@ -1,9 +1,9 @@
-import { PERSONA_ICONS } from '../../assets/personaAsets';
-import { COLORS } from '../../utils/constants';
-import { RemoveImageComp } from '../../assets/Icons/removeImage';
+import { PERSONA_ICONS } from '../../../assets/personaAsets';
+import { COLORS } from '../../../utils/constants';
+import { RemoveImageComp } from '../../../assets/Icons/removeImage';
 import { PersonaDetailsModalProps } from './types';
-import { CheckMark } from '../../assets/Icons/checkmarkIcon';
-import { CrossIcon } from '../../assets/Icons/crossIcon';
+import { CheckMark } from '../../../assets/Icons/checkmarkIcon';
+import { CrossIcon } from '../../../assets/Icons/crossIcon';
 
 export const PersonaDetailsModal = ({
   displayPicture,
@@ -18,8 +18,7 @@ export const PersonaDetailsModal = ({
 }: PersonaDetailsModalProps) => {
   return (
     <div className={`flex items-center justify-center ${customClass}`}>
-      <div className=" w-full max-w-lg p-6 bg-white rounded-xl shadow-lg">
-        {/* Heading and Close Button */}
+      <div className=" w-full max-w-lg p-4 bg-white rounded-xl shadow-lg">
         <div className="flex justify-between items-center mb-6">
           <h2 className="text-lg font-semibold">Quick Edit</h2>
           <button
@@ -29,11 +28,9 @@ export const PersonaDetailsModal = ({
             <CrossIcon />
           </button>
         </div>
-
-        {/* Display Picture and Name Field */}
         <div className="flex mb-6">
           <div
-            className="w-16 h-16 rounded-xl bg-gray-200 border flex items-center justify-center"
+            className="w-20 h-20 rounded-xl bg-gray-200 border flex items-center justify-center"
             style={{ backgroundColor }}
           >
             <div className="w-full h-full p-3 flex items-center justify-center">
@@ -52,9 +49,8 @@ export const PersonaDetailsModal = ({
           </div>
         </div>
 
-        {/* Avatar Section */}
         <div className="mb-6">
-          <h3 className="text-lg font-medium mb-2">Avatar</h3>
+          <h3 className="text-lg font-medium mb-2">Image</h3>
           <div className="flex flex-wrap items-center gap-2 mb-4">
             <button
               onClick={() => {
@@ -86,8 +82,6 @@ export const PersonaDetailsModal = ({
             ))}
           </div>
         </div>
-
-        {/* Color Section */}
         <div className="mb-4">
           <h3 className="text-lg font-medium mb-2">Color</h3>
           <div className="flex flex-wrap gap-2">
@@ -108,7 +102,6 @@ export const PersonaDetailsModal = ({
           </div>
         </div>
 
-        {/* Button Section */}
         <div className="flex justify-end gap-4 font-medium border-t pt-4">
           <button
             onClick={onClose}

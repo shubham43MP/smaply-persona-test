@@ -1,13 +1,11 @@
-import { Navbar } from './components/Navbar';
+import { Navbar } from './components/compounds/Navbar';
 import { HomePage } from './containers/HomePage';
 
-const App = () => {
-  return (
-    <div className="bg-lightcream">
-      <Navbar />
-      <HomePage />
-    </div>
-  );
-};
+const App = () => (
+  <div className="bg-lightcream">
+    <Navbar />
+    <HomePage />
+  </div>
+);
 
 export default App;
