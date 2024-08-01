@@ -64,5 +64,6 @@ The dev server will come up at `localhost:5173`
 
 - yjs collaboration havent added due to time considerations as this has a substantial learning curve
 - Designs can be further inch tweaked and made closer including responsiveness.
-- Not implemented Left menubar as found no reference of it in the task description
+- Not implemented Left menubar as found no reference of it in the task description.
+- The RTE can be more customised
 - I have tried to keep the code structure as best as possible but still, there can be minor scope of improvement
