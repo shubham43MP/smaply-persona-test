@@ -42,6 +42,14 @@ yarn run dev or npm run dev
 
 The dev server will come up at `localhost:5173`
 
+## Developed App Screenshots
+
+- Main page with Modal
+  ![Main Page with Modal](/public/github-asset/smaply-ui-outlook.png?raw=true)
+
+- Persona Page
+  ![Persona page Editor](/public/github-asset/persona-editor.png?raw=true)
+
 ## Dev Comments
 
 - Used index.ts in various files just to have a kind of modular formatting.
@@ -56,4 +64,6 @@ The dev server will come up at `localhost:5173`
 
 - yjs collaboration havent added due to time considerations as this has a substantial learning curve
 - Designs can be further inch tweaked and made closer including responsiveness.
-- Not implemented Left menubar as found no reference of it in the task description
+- Not implemented Left menubar as found no reference of it in the task description.
+- The RTE can be more customised
+- I have tried to keep the code structure as best as possible but still, there can be minor scope of improvement
