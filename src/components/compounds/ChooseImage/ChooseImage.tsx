@@ -16,7 +16,11 @@ export const ChooseAnImage = ({
 
   return (
     <div
-      className=" bg-white rounded-lg relative border-2 border-solid border-gray-300 "
+      className={`relative ${
+        selectedImage
+          ? ''
+          : 'bg-white rounded-lg  border-2 border-solid border-gray-300'
+      }`}
       onClick={handleClick}
     >
       {selectedImage ? (
