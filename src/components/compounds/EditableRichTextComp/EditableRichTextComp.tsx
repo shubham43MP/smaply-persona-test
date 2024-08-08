@@ -44,7 +44,7 @@ const EditableRichTextComp = memo(
               <ReactQuill
                 theme="snow"
                 value={richText}
-                onChange={value => debounced(value)}
+                onChange={(value: string) => debounced(value)}
                 className="h-full w-full"
               />
             </div>
