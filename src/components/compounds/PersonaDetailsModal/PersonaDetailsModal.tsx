@@ -58,10 +58,10 @@ export const PersonaDetailsModal = ({
                 <RemoveImageComp />
               </div>
             </button>
-
             {PERSONA_ICONS.map(persona => (
               <div
                 key={persona.name}
+                data-testid={persona.name}
                 onClick={() => {
                   setDisplayPicture(persona.icon);
                 }}
