@@ -11,7 +11,7 @@
     "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview",
     "test": "jest",
-    "coverage": "yarn run test --coverage --watchAll --collectCoverageFrom='src/**/*.{ts,tsx}'"
+    "coverage": "yarn run test --coverage"
   },
   "dependencies": {
     "react": "^18.3.1",
