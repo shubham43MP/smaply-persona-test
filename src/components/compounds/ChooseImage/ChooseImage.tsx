@@ -39,6 +39,7 @@ export const ChooseAnImage = ({
         type="file"
         id={imageIdentifier}
         accept="image/*"
+        data-testid="imageInput-test-id"
         ref={inputRef}
         onChange={
           handleImageChange as ChangeEventHandler<HTMLInputElement> | undefined
