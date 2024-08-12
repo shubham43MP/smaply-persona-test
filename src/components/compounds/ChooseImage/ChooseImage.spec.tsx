@@ -1,7 +1,6 @@
 import { render, screen, fireEvent } from '@testing-library/react';
 import '@testing-library/jest-dom';
 import { ChooseAnImage } from './index';
-// import { ChooseImage } from '../../../assets/Icons/chooseImage';
 
 jest.mock('../../../assets/Icons/chooseImage', () => ({
   ChooseImage: jest.fn(({ customClass }) => (
