@@ -14,6 +14,7 @@
     "coverage": "yarn run test --coverage --collectCoverageFrom='src/**/*.{ts,tsx}'"
   },
   "dependencies": {
+    "@tailwindcss/postcss": "^4.1.0",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "react-quill": "^2.0.0",
@@ -43,7 +44,7 @@
     "jest-transformer-svg": "^2.0.2",
     "postcss": "^8.4.39",
     "sass": "^1.77.8",
-    "tailwindcss": "^4.0.17",
+    "tailwindcss": "3",
     "ts-jest": "^29.2.4",
     "ts-node": "^10.9.2",
     "typescript": "^5.8.2",
