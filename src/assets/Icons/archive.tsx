@@ -3,6 +3,7 @@ import { SVGTSXIconProps } from '@/utils/types';
 export const ArchiveIcon = ({ customClass = 'h-6 w-6' }: SVGTSXIconProps) => {
   return (
     <svg
+      data-testid="archive-icon"
       xmlns="http://www.w3.org/2000/svg"
       width="20"
       height="20"

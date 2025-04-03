@@ -8,6 +8,7 @@ export type DropDownList = {
   type: ImageOrTextEnum;
 };
 
+
 export type TextImageMenuProps = {
   menuItemClickHandler: (
     type: ImageOrTextEnum,
