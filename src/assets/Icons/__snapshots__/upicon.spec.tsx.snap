@@ -1,0 +1,17 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`UpIcon Component matches the snapshot 1`] = `
+<DocumentFragment>
+  <svg
+    class="fill-black-700 h-6 w-6"
+    height="9"
+    viewBox="0 0 12 9"
+    width="12"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <path
+      d="M6 .625l-6 6 1.4 1.4 4.6-4.6 4.6 4.6 1.4-1.4-6-6z"
+    />
+  </svg>
+</DocumentFragment>
+`;

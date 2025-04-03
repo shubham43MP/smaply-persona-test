@@ -1,0 +1,36 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Navbar Component matches the snapshot 1`] = `
+<DocumentFragment>
+  <header
+    class="mx-8 my-6"
+  >
+    <div
+      class="flex justify-between"
+    >
+      <picture>
+        <img
+          alt="Smaply Logo"
+          class="h-8 w-44"
+          src="/smaplylogo.png"
+        />
+      </picture>
+      <div
+        class="flex gap-3"
+      >
+        <p
+          class="self-center font-medium text-base"
+        >
+          John Smith
+        </p>
+        <div>
+          JS
+        </div>
+      </div>
+    </div>
+  </header>
+  <hr
+    class="mx-6 border-solid border-slate-200"
+  />
+</DocumentFragment>
+`;

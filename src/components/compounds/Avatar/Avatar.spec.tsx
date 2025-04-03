@@ -48,4 +48,22 @@ describe('Avatar Component', () => {
     expect(initialsElement).toHaveClass('text-lg');
     expect(initialsElement).toHaveClass('font-bold');
   });
+
+  it('renders empty initials when name is an empty string', () => {
+    const { container } = render(<Avatar name="" />);
+    const avatarElement = container.firstChild;
+    expect(avatarElement).not.toBeNull();
+    expect(avatarElement?.textContent).toBe('');
+  });
+
+  it('trims extra spaces from name before generating initials', () => {
+    const { getByText } = render(<Avatar name="  John   Doe  " />);
+    const initialsElement = getByText('JD');
+    expect(initialsElement).toBeInTheDocument();
+  });
+
+  it('matches the snapshot', () => {
+    const { asFragment } = render(<Avatar name="Jane Doe" />);
+    expect(asFragment()).toMatchSnapshot();
+  });
 });
