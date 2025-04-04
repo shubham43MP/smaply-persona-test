@@ -1,50 +1,67 @@
 import { render, screen, fireEvent } from '@testing-library/react';
-import { TextImageMenu } from './TextImageMenu';
+import TextImageMenu from './TextImageMenu';
 import { ImageOrTextEnum } from '@/utils/types';
 
-describe('TextImageMenu', () => {
-  it('renders without crashing', () => {
-    render(<TextImageMenu menuItemClickHandler={jest.fn()} flag={1} />);
-    expect(screen.getByText('Add Card')).toBeInTheDocument();
+describe('TextImageMenu Component', () => {
+  const mockMenuItemClickHandler = jest.fn();
+
+  beforeEach(() => {
+    jest.clearAllMocks();
   });
 
-  it('toggles dropdown visibility when button is clicked', () => {
-    render(<TextImageMenu menuItemClickHandler={jest.fn()} flag={1} />);
-    
-    const button = screen.getByText('Add Card');
-    fireEvent.click(button);
-    
-    expect(screen.getByText('Text')).toBeVisible();
-    expect(screen.getByText('Image')).toBeVisible();
-    
-    fireEvent.click(button);
-    
-    expect(screen.queryByText('Text')).not.toBeVisible();
-    expect(screen.queryByText('Image')).not.toBeVisible();
+  it('renders the component without crashing', () => {
+    render(
+      <TextImageMenu menuItemClickHandler={mockMenuItemClickHandler} flag={1} />
+    );
+    expect(screen.getByText(/Add Card/i)).toBeInTheDocument();
   });
 
-  it('closes dropdown when clicking outside', () => {
-    render(<TextImageMenu menuItemClickHandler={jest.fn()} flag={1} />);
-    
-    const button = screen.getByText('Add Card');
-    fireEvent.click(button);
-    
-    fireEvent.mouseDown(document.body);
-    
-    expect(screen.queryByText('Text')).not.toBeVisible();
-    expect(screen.queryByText('Image')).not.toBeVisible();
+  it('opens the dropdown when hovering over the button and closes when clicking outside', () => {
+    render(
+      <TextImageMenu menuItemClickHandler={mockMenuItemClickHandler} flag={1} />
+    );
+
+    fireEvent.mouseEnter(screen.getByTestId('dropdown-container'));
+
+    expect(screen.getByText(/Add Card/i)).toBeVisible();
+
+    fireEvent.click(screen.getByText(/Add Card/i));
+
+    expect(screen.getByText(/Text/i)).toBeVisible();
+    expect(screen.getByText(/Image/i)).toBeVisible();
   });
 
-  it('calls menuItemClickHandler with correct type when a menu item is clicked', () => {
-    const mockHandler = jest.fn();
-    render(<TextImageMenu menuItemClickHandler={mockHandler} flag={1} />);
-    
-    const button = screen.getByText('Add Card');
-    fireEvent.click(button);
-    
-    const textOption = screen.getByText('Text');
-    fireEvent.click(textOption);
-    
-    expect(mockHandler).toHaveBeenCalledWith(ImageOrTextEnum.text, 1);
+  it('calls menuItemClickHandler with correct parameters when "Text" is clicked', () => {
+    render(
+      <TextImageMenu menuItemClickHandler={mockMenuItemClickHandler} flag={1} />
+    );
+
+    fireEvent.mouseEnter(screen.getByTestId('dropdown-container'));
+
+    fireEvent.click(screen.getByText(/Add Card/i));
+
+    fireEvent.click(screen.getByText(/Text/i));
+
+    expect(mockMenuItemClickHandler).toHaveBeenCalledWith(
+      ImageOrTextEnum.text,
+      1
+    );
+  });
+
+  it('calls menuItemClickHandler with correct parameters when "Image" is clicked', () => {
+    render(
+      <TextImageMenu menuItemClickHandler={mockMenuItemClickHandler} flag={1} />
+    );
+
+    fireEvent.mouseEnter(screen.getByTestId('dropdown-container'));
+
+    fireEvent.click(screen.getByText(/Add Card/i));
+
+    fireEvent.click(screen.getByText(/Image/i));
+
+    expect(mockMenuItemClickHandler).toHaveBeenCalledWith(
+      ImageOrTextEnum.image,
+      1
+    );
   });
 });

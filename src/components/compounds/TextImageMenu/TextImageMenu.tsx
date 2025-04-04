@@ -57,6 +57,7 @@ export const TextImageMenu = ({
 
   return (
     <div
+       data-testid="dropdown-container"
       className="flex flex-col flex-1 cursor-pointer relative"
       ref={dropdownRef}
       onMouseEnter={() => debounced(true)}
@@ -116,3 +117,4 @@ export const TextImageMenu = ({
     </div>
   );
 };
+export default TextImageMenu
