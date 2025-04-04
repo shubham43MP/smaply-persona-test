@@ -25,6 +25,7 @@ export const PersonaDetailsModal = ({
         <div className="flex justify-between items-center mb-6">
           <h2 className="text-lg font-semibold">Quick Edit</h2>
           <button
+            data-testid="modal-close"
             onClick={onClose}
             className="text-gray-600 hover:text-gray-800"
           >
