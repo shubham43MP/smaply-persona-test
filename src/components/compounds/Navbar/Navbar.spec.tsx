@@ -37,13 +37,23 @@ describe('Navbar Component', () => {
   });
 
   it('renders the layout correctly', () => {
-    render(<Navbar />);
+    const { container } = render(<Navbar />);
+
     const headerElement = screen.getByRole('banner');
     expect(headerElement).toHaveClass('mx-8 my-6');
-    
-    const divElements = screen.getAllByRole('presentation');
-    expect(divElements[0]).toHaveClass('flex justify-between');
-    expect(divElements[1]).toHaveClass('flex gap-3');
+
+    const logo = screen.getByAltText('Smaply Logo');
+    expect(logo).toBeInTheDocument();
+
+    const userName = screen.getByText('John Smith');
+    expect(userName).toBeInTheDocument();
+
+    const avatar = screen.getByRole('img');
+    expect(avatar).toBeInTheDocument();
+
+    const divElements = container.querySelectorAll('.flex');
+    expect(divElements[0]).toHaveClass('justify-between');
+    expect(divElements[1]).toHaveClass('gap-3');
   });
 
   it('matches the snapshot', () => {

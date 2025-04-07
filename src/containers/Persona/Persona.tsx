@@ -41,6 +41,7 @@ export const Persona = () => {
           </p>
           <div className="flex gap-2 relative">
             <PersonaAvatar
+              data-testid="persona-avatar"
               customClass={`w-14 h-14 rounded-md bg-${backgroundColor}`}
             >
               {displayPicture}
@@ -63,6 +64,7 @@ export const Persona = () => {
                 handleForm={closeHandler}
                 customClass="absolute z-20 top-16"
                 onClose={closeHandler}
+                
               />
             )}
           </div>
@@ -106,7 +108,10 @@ export const Persona = () => {
           </div>
           <div className="p-4 flex flex-col gap-3 min-w-82">
             <div className="bg-white rounded-lg p-3 flex gap-3">
-              <PersonaAvatar customClass={`w-16 h-16 bg-${backgroundColor}`}>
+              <PersonaAvatar
+                data-testid="persona-avatar"
+                customClass={`w-16 h-16 bg-${backgroundColor}`}
+              >
                 {displayPicture}
               </PersonaAvatar>
               <PersonaTextCard text={name} />
