@@ -3,7 +3,6 @@ import { Persona } from './Persona';
 import { usePersona } from './usePersona';
 import { ImageOrTextEnum } from '@/utils/types';
 
-// Mock the `usePersona` hook
 jest.mock('./usePersona', () => ({
   usePersona: jest.fn()
 }));
@@ -41,10 +40,9 @@ describe('Persona Component', () => {
   it('opens modal when edit icon is clicked', () => {
     const { container } = render(<Persona />);
 
-    // Try to find the edit icon using different approaches
     const editIconButton =
-      screen.queryByTestId('edit-icon') || // Preferred if available
-      container.querySelector('div.cursor-pointer'); // Fallback using class selector
+      screen.queryByTestId('edit-icon') ||
+      container.querySelector('div.cursor-pointer');
 
     if (!editIconButton) {
       throw new Error('Edit icon button not found');
@@ -58,12 +56,12 @@ describe('Persona Component', () => {
   it('closes modal when close button is clicked', () => {
     (usePersona as jest.Mock).mockReturnValue({
       ...mockUsePersona,
-      modalOpen: true // Ensure modal is open before rendering
+      modalOpen: true
     });
 
     render(<Persona />);
 
-    const closeButton = screen.getByTestId('modal-close'); // Make sure this testId exists
+    const closeButton = screen.getByTestId('modal-close');
     fireEvent.click(closeButton);
 
     expect(mockUsePersona.closeHandler).toHaveBeenCalled();
